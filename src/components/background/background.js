@@ -43,7 +43,11 @@ export default function Background() {
 	}, []);
 
 	return (
+<<<<<<< HEAD
 		<div className="fixed left-0 top-0 -z-50 h-screen w-full overflow-hidden bg-base-100">
+=======
+		<div className="fixed left-0 top-0 h-screen w-full overflow-hidden bg-base-100">
+>>>>>>> 4c729abb7b084398a518dd00a1d8c6ab64377eff
 			<motion.div
 				ref={scope}
 				className="h-full w-full bg-center"
