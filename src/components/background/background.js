@@ -1,7 +1,7 @@
 "use client";
 import { motion, useAnimate } from "framer-motion";
 import { useEffect } from "react";
-import themeColors from "@/lib/theme-colors/theme-colors";
+import twConfig from "@/lib/tw-config/tw-config";
 
 export default function Background() {
 	const [scope, animate] = useAnimate();
@@ -50,7 +50,7 @@ export default function Background() {
 				initial={{
 					opacity: 0,
 					backgroundSize: "100px 100px",
-					backgroundImage: `radial-gradient(circle, ${themeColors["base-content"]} 1px, transparent 1px)`,
+					backgroundImage: `radial-gradient(circle, ${twConfig.theme.colors["light"]} 1px, transparent 1px)`,
 					scale: 1.5,
 					perspective: 2000,
 				}}

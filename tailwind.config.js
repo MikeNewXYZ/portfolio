@@ -5,8 +5,12 @@ module.exports = {
 		"./src/components/**/*.{js,ts,jsx,tsx,mdx}",
 		"./src/app/**/*.{js,ts,jsx,tsx,mdx}",
 	],
-	daisyui: {
-		themes: ["dark"],
+	theme: {
+		colors: {
+			transparent: "transparent",
+			current: "currentColor",
+			dark: "#000000",
+			light: "#e7e0cd",
+		},
 	},
-	plugins: [require("daisyui")],
 };
