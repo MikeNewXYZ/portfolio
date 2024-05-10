@@ -4,7 +4,7 @@ import Hero from "@/components/hero/hero";
 export default function Home() {
 	return (
 		<>
-			<main className="container mx-auto">
+			<main className="container mx-auto overflow-hidden">
 				<Hero />
 			</main>
 
