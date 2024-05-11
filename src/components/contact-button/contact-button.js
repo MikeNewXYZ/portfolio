@@ -3,6 +3,7 @@ import { Chats } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Button from "../button/button";
+import { useMainTextContext } from "@/context/main-text-context/main-text-context";
 
 const MotionLink = motion(Link);
 
@@ -18,6 +19,8 @@ const LinkVariant = {
 };
 
 export default function ContactButton({ href }) {
+	const { originalMainText, setMainText } = useMainTextContext();
+
 	return (
 		<div className="pointer-events-none fixed left-0 top-0 z-50 flex h-full w-full items-end justify-end p-4">
 			<MotionLink
@@ -26,6 +29,8 @@ export default function ContactButton({ href }) {
 				variants={LinkVariant}
 				initial="inital"
 				animate="animate"
+				onMouseEnter={() => setMainText("contact")}
+				onMouseLeave={() => setMainText(originalMainText)}
 			>
 				<Button className="flex w-full items-center justify-center gap-2 p-1 sm:p-2">
 					<Chats className="text-xl sm:text-3xl" weight="regular" />

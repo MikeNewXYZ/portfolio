@@ -1,3 +1,4 @@
+import ContextProviderWrapper from "@/context/context-provider-wrapper";
 import "./globals.css";
 import Background from "@/components/background/background";
 
@@ -9,8 +10,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body className="relative bg-dark text-light">
-				{children}
+			<body className="relative overflow-hidden bg-dark text-light">
+				<ContextProviderWrapper>{children}</ContextProviderWrapper>
+
 				<Background />
 			</body>
 		</html>
