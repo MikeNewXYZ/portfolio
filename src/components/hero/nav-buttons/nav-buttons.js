@@ -6,13 +6,16 @@ import { motion } from "framer-motion";
 import { useMainTextContext } from "@/context/main-text-context/main-text-context";
 
 const containerVariant = {
-	initial: {
+	hide: {
 		opacity: 0,
 		y: "50%",
 	},
-	animate: {
+	show: {
 		opacity: 1,
 		y: "0%",
+		transition: {
+			delay: 0.5,
+		},
 	},
 };
 
@@ -24,9 +27,8 @@ export default function NavButtons({ classNames, buttons = [], ...props }) {
 			{...props}
 			className={cn("flex gap-4", classNames)}
 			variants={containerVariant}
-			initial="initial"
-			animate="animate"
-			whileInView="visible"
+			initial="hide"
+			animate="show"
 		>
 			{buttons.map(({ href, name }, index) => (
 				<Link

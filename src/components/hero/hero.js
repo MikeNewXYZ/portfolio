@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import Heading from "./heading/heading";
 import NavButtons from "./nav-buttons/nav-buttons";
 import Subheading from "./subheading/subheading";

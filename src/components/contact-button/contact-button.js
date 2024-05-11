@@ -8,13 +8,16 @@ import { useMainTextContext } from "@/context/main-text-context/main-text-contex
 const MotionLink = motion(Link);
 
 const LinkVariant = {
-	inital: {
+	hide: {
 		opacity: 0,
 		y: "100%",
 	},
-	animate: {
+	show: {
 		opacity: 1,
 		y: "0%",
+		transition: {
+			delay: 0.5,
+		},
 	},
 };
 
@@ -27,9 +30,8 @@ export default function ContactButton({ href }) {
 				className="pointer-events-auto w-full sm:w-fit"
 				href={href}
 				variants={LinkVariant}
-				initial="inital"
-				animate="animate"
-				whileInView="visible"
+				initial="hide"
+				animate="show"
 				onMouseEnter={() => setMainText("contact")}
 				onMouseLeave={() => setMainText(originalMainText)}
 			>

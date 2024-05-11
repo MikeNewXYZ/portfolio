@@ -1,15 +1,17 @@
+"use client";
 import { cn } from "@/lib/cn/cn";
 import { motion } from "framer-motion";
 
 const topTextVariant = {
-	initial: {
+	hide: {
 		opacity: 0,
 		x: "-50%",
 	},
-	animate: {
+	show: {
 		opacity: 1,
 		x: "0%",
 		transition: {
+			delay: 0.5,
 			duration: 0.5,
 			type: "spring",
 		},
@@ -17,14 +19,15 @@ const topTextVariant = {
 };
 
 const mainTextVariant = {
-	initial: {
+	hide: {
 		opacity: 0,
 		x: "50%",
 	},
-	animate: {
+	show: {
 		opacity: 1,
 		x: "0%",
 		transition: {
+			delay: 0.5,
 			duration: 0.5,
 			type: "spring",
 		},
@@ -42,18 +45,16 @@ export default function Heading({
 			<motion.h1
 				className="text-4xl"
 				variants={topTextVariant}
-				initial="initial"
-				animate="animate"
-				whileInView="visible"
+				initial="hide"
+				whileInView="show"
 			>
 				{topText}
 			</motion.h1>
 			<motion.h1
 				className="text-8xl"
 				variants={mainTextVariant}
-				initial="initial"
-				animate="animate"
-				whileInView="visible"
+				initial="hide"
+				animate="show"
 			>
 				{mainText}
 			</motion.h1>
