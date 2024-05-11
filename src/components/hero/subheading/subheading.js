@@ -33,12 +33,14 @@ export default function Subheading({ className, text = "", ...props }) {
 			variants={containerVariant}
 			initial="initial"
 			animate="animate"
+			whileInView="visible"
 		>
 			{text.split("").map((l, i) => (
 				<motion.span
 					key={i}
 					className={`inline-block ${l === " " ? "px-0.5" : ""}`}
 					variants={letterVariant}
+					whileInView="visible"
 				>
 					{l}
 				</motion.span>

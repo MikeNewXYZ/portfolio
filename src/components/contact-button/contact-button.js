@@ -29,6 +29,7 @@ export default function ContactButton({ href }) {
 				variants={LinkVariant}
 				initial="inital"
 				animate="animate"
+				whileInView="visible"
 				onMouseEnter={() => setMainText("contact")}
 				onMouseLeave={() => setMainText(originalMainText)}
 			>

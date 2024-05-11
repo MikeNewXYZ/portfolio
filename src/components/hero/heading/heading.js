@@ -44,6 +44,7 @@ export default function Heading({
 				variants={topTextVariant}
 				initial="initial"
 				animate="animate"
+				whileInView="visible"
 			>
 				{topText}
 			</motion.h1>
@@ -52,6 +53,7 @@ export default function Heading({
 				variants={mainTextVariant}
 				initial="initial"
 				animate="animate"
+				whileInView="visible"
 			>
 				{mainText}
 			</motion.h1>

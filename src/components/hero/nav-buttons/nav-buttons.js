@@ -26,6 +26,7 @@ export default function NavButtons({ classNames, buttons = [], ...props }) {
 			variants={containerVariant}
 			initial="initial"
 			animate="animate"
+			whileInView="visible"
 		>
 			{buttons.map(({ href, name }, index) => (
 				<Link
