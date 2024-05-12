@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }) {
 	const router = useRouter();
 
 	return (
-		<AnimatePresence mode="wait" initial={false}>
+		<AnimatePresence mode="wait">
 			<motion.div
 				key={router.pathname}
 				initial={{ opacity: 0, scale: 0.5 }}
