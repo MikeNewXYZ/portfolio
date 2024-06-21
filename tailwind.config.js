@@ -8,6 +8,11 @@ export default {
 			primary: "#E7E0CD",
 			secondary: "#000000",
 		},
+		extend: {
+			fontFamily: {
+				"space-grotesk": ["space-grotesk", "sans-serif"],
+			},
+		},
 	},
 	plugins: [],
 };
