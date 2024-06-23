@@ -12,7 +12,7 @@ export default function ContactButton() {
 
 	return (
 		<div className="pointer-events-none fixed left-0 top-0 z-10 flex h-dvh w-full items-end justify-end p-2 sm:p-4">
-			<div ref={outerRef}>
+			<div ref={outerRef} className="w-full sm:w-fit">
 				<Button
 					ref={innerRef}
 					className="group pointer-events-auto flex w-full items-center justify-center gap-2 bg-secondary text-2xl sm:w-fit"
