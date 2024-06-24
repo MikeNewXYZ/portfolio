@@ -44,17 +44,6 @@ export default function useFloatingCard(settings = defaultSettings) {
 	// Cache dimensions to prevent expensive calculations on every mouse event.
 	useEffect(() => {
 		if (isMobileDevice) return;
-		const inner = innerRef.current;
-
-		const updateDimensions = () => {
-			const { top, left, height, width } = inner.getBoundingClientRect();
-			dimensions.current = {
-				top,
-				left,
-				halfHeight: height / 2,
-				halfWidth: width / 2,
-			};
-		};
 		updateDimensions();
 
 		window.addEventListener("resize", updateDimensions);
@@ -66,6 +55,18 @@ export default function useFloatingCard(settings = defaultSettings) {
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
+	const updateDimensions = () => {
+		const inner = innerRef.current;
+
+		const { top, left, height, width } = inner.getBoundingClientRect();
+		dimensions.current = {
+			top,
+			left,
+			halfHeight: height / 2,
+			halfWidth: width / 2,
+		};
+	};
 
 	// Animate floating card effect.
 	const handleMouseMove = useCallback(
@@ -106,5 +107,5 @@ export default function useFloatingCard(settings = defaultSettings) {
 		});
 	}, []);
 
-	return { outerRef, innerRef };
+	return { outerRef, innerRef, updateDimensions };
 }
