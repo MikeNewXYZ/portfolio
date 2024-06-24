@@ -9,15 +9,15 @@ export default function HomeBackground() {
 				className={`${styles["star-wrapper"]} absolute left-0 top-0 z-10 h-full w-full text-xl antialiased`}
 			>
 				<ShootingStar
-					className={`${styles.star} absolute -translate-x-16 translate-y-16 rotate-180`}
+					className={`${styles.star} absolute -translate-x-16 translate-y-16 rotate-[190deg]`}
 					weight="fill"
 				/>
 				<ShootingStar
-					className={`${styles.star} absolute -translate-x-4 -translate-y-20 rotate-180`}
+					className={`${styles.star} absolute -translate-x-4 -translate-y-20 rotate-[190deg]`}
 					weight="fill"
 				/>
 				<ShootingStar
-					className={`${styles.star} absolute translate-x-32 rotate-180`}
+					className={`${styles.star} absolute translate-x-32 rotate-[190deg]`}
 					weight="fill"
 				/>
 			</div>
