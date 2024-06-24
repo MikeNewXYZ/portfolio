@@ -4,15 +4,35 @@ import { useNavigate } from "react-router-dom";
 import Button from "@/components/Button/Button";
 import { Chat, ChatDots } from "@phosphor-icons/react";
 import useFloatingCard from "@/hooks/useFloatingCard/useFloatingCard";
+import { motion } from "framer-motion";
+
+const buttonWrapperVariant = {
+	hide: {
+		opacity: 0,
+		y: "100%",
+	},
+	show: {
+		opacity: 1,
+		y: "0%",
+	},
+};
 
 export default function ContactButton() {
 	const navigate = useNavigate();
 	const { setHomeTitle, resetHomeTitle } = useContext(HomeTitleContext);
-	const { outerRef, innerRef } = useFloatingCard();
+	const { outerRef, innerRef, updateDimensions } = useFloatingCard();
 
 	return (
 		<div className="pointer-events-none fixed left-0 top-0 z-10 flex h-dvh w-full items-end justify-end p-2 sm:p-4">
-			<div ref={outerRef} className="w-full sm:w-fit">
+			<motion.div
+				ref={outerRef}
+				className="w-full sm:w-fit"
+				variants={buttonWrapperVariant}
+				initial="hide"
+				animate="show"
+				exit="hide"
+				onAnimationComplete={() => updateDimensions()}
+			>
 				<Button
 					ref={innerRef}
 					className="group pointer-events-auto flex w-full items-center justify-center gap-2 bg-secondary text-2xl sm:w-fit"
@@ -26,7 +46,7 @@ export default function ContactButton() {
 					<ChatDots className="hidden pb-0.5 text-3xl group-hover:block group-hover:animate-pulse" />
 					<span>contact</span>
 				</Button>
-			</div>
+			</motion.div>
 		</div>
 	);
 }
