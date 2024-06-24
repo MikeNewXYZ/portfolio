@@ -3,6 +3,7 @@ import { HomeTitleContext } from "@context/AppContext";
 import Button from "@components/Button/Button";
 import { useNavigate } from "react-router-dom";
 import useFloatingCard from "@/hooks/useFloatingCard/useFloatingCard";
+import Title from "./Title/Title";
 
 export default function HomeHero() {
 	const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function HomeHero() {
 			<div ref={outerRef}>
 				<div ref={innerRef} className="text-center uppercase">
 					<h2 className="text-3xl font-black sm:text-4xl">hello there</h2>
-					<h1 className="text-6xl font-black sm:text-8xl">{homeTitle}</h1>
+					<Title homeTitle={homeTitle} />
 					<p className="mt-3 text-sm normal-case sm:text-base">Experienced British Web Developer</p>
 					<div
 						className="mt-6 flex justify-center gap-4"
