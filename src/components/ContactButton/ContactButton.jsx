@@ -6,18 +6,7 @@ import { Chat, ChatDots } from "@phosphor-icons/react";
 import useFloatingCard from "@/hooks/useFloatingCard/useFloatingCard";
 import { motion } from "framer-motion";
 
-const buttonWrapperVariant = {
-	hide: {
-		opacity: 0,
-		y: "100%",
-	},
-	show: {
-		opacity: 1,
-		y: "0%",
-	},
-};
-
-export default function ContactButton() {
+export default function ContactButton({ variants }) {
 	const navigate = useNavigate();
 	const { setHomeTitle, resetHomeTitle } = useContext(HomeTitleContext);
 	const { outerRef, innerRef, updateDimensions } = useFloatingCard();
@@ -27,7 +16,7 @@ export default function ContactButton() {
 			<motion.div
 				ref={outerRef}
 				className="w-full sm:w-fit"
-				variants={buttonWrapperVariant}
+				variants={variants}
 				initial="hide"
 				animate="show"
 				exit="hide"
