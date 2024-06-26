@@ -13,7 +13,7 @@ export default function RootContainer() {
 	const location = useLocation();
 
 	return (
-		<AnimatePresence mode="wait">
+		<AnimatePresence mode="wait" initial={false}>
 			<motion.div
 				key={location.key}
 				initial={{ opacity: 0 }}

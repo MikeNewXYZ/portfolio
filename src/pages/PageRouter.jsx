@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootContainer from "./RootContainer";
 import HomePage from "@pages/HomePage/HomePage";
+import ContactPage from "@pages/ContactPage/ContactPage";
 
 const router = createBrowserRouter([
 	{
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/contact",
-				element: <h1>contact page</h1>,
+				element: <ContactPage />,
 			},
 			{
 				path: "/resume",
