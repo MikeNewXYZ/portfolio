@@ -3,7 +3,7 @@ import { throttle, debounce } from "throttle-debounce";
 import styles from "./styles.module.css";
 
 const TILE_SIZE = 100;
-const MOUSE_COLLIDER_SIZE = 100;
+const MOUSE_COLLIDER_SIZE = 200;
 
 export default function ContactBackground() {
 	const wrapperRef = useRef();
@@ -27,7 +27,7 @@ export default function ContactBackground() {
 	}, [tilePos]);
 
 	// Handle mouse movement and detect collisions with tiles.
-	const mouseCollision = throttle(100, (e) => {
+	const mouseCollision = throttle(50, (e) => {
 		requestAnimationFrame(() => {
 			// Create a rectangle that follows the mouse.
 			// This rectangle is used as the mouses collider.
