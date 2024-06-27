@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { throttle, debounce } from "throttle-debounce";
 import styles from "./styles.module.css";
 
 const TILE_SIZE = 100;
@@ -9,10 +10,11 @@ export default function ContactBackground() {
 	const [tilePos, setTilePos] = useState([]);
 	const [tilesCollided, setTilesCollided] = useState([]);
 
-	useEffect(() => {
-		calcTiles();
-	}, []);
+	// Calculate the initial positions of the tiles on component mount.
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	useEffect(() => calcTiles(), []);
 
+	// Add event listeners for window resize and mouse movement.
 	useEffect(() => {
 		window.addEventListener("resize", calcTiles);
 		window.addEventListener("mousemove", mouseCollision);
@@ -24,44 +26,48 @@ export default function ContactBackground() {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [tilePos]);
 
-	const mouseCollision = (e) => {
-		const { x, y } = e;
-		const rect = {
-			left: x - MOUSE_COLLIDER_SIZE,
-			top: y - MOUSE_COLLIDER_SIZE,
-			right: x + MOUSE_COLLIDER_SIZE,
-			bottom: y + MOUSE_COLLIDER_SIZE,
-		};
+	// Handle mouse movement and detect collisions with tiles.
+	const mouseCollision = throttle(100, (e) => {
+		requestAnimationFrame(() => {
+			// Create a rectangle that follows the mouse.
+			// This rectangle is used as the mouses collider.
+			const rect = {
+				left: e.x - MOUSE_COLLIDER_SIZE,
+				top: e.y - MOUSE_COLLIDER_SIZE,
+				right: e.x + MOUSE_COLLIDER_SIZE,
+				bottom: e.y + MOUSE_COLLIDER_SIZE,
+			};
 
-		let tilesCollided = [];
+			// Check which tiles are colliding with the mouse collider.
+			let tilesCollided = [];
 
-		for (let row = 0; row < tilePos.length; row++) {
-			for (let col = 0; col < tilePos[row].length; col++) {
-				const tile = tilePos[row][col];
-				if (
-					rect.right >= tile.left &&
-					rect.left <= tile.right &&
-					rect.bottom >= tile.top &&
-					rect.top <= tile.bottom
-				) {
-					tilesCollided.push(`${row}-${col}`);
+			for (let row = 0; row < tilePos.length; row++) {
+				for (let col = 0; col < tilePos[row].length; col++) {
+					const tile = tilePos[row][col];
+					if (
+						rect.right >= tile.left &&
+						rect.left <= tile.right &&
+						rect.bottom >= tile.top &&
+						rect.top <= tile.bottom
+					) {
+						tilesCollided.push(`${row}-${col}`);
+					}
 				}
 			}
-		}
 
-		setTilesCollided(tilesCollided);
-	};
+			setTilesCollided(tilesCollided);
+		});
+	});
 
-	const calcTiles = () => {
+	// Calculate the positions of the tiles based on the wrapper element's dimensions.
+	const calcTiles = debounce(100, () => {
 		const wrapperEl = wrapperRef.current;
 
-		// Calc the amount of columns and rows of tiles needed
-		// to fill the wrapper element.
+		// Calculate the number of columns and rows needed to fill the wrapper element.
 		const cols = Math.floor(wrapperEl.clientWidth / TILE_SIZE);
 		const rows = Math.floor(wrapperEl.clientHeight / TILE_SIZE);
 
-		// Set css variables for columns and rows for the
-		// wrappers css grid template rows and columns.
+		// Set CSS variables for the grid template.
 		wrapperEl.style.setProperty("--cols", cols);
 		wrapperEl.style.setProperty("--rows", rows);
 
@@ -82,7 +88,7 @@ export default function ContactBackground() {
 		}
 
 		setTilePos(tilesPos);
-	};
+	});
 
 	return (
 		<div ref={wrapperRef} className={`${styles["wrapper"]} h-dvh w-full bg-primary p-[2px]`}>
@@ -93,10 +99,8 @@ export default function ContactBackground() {
 					return (
 						<div key={`${rowIndex}-${colIndex}`} className="h-full w-full select-none p-[1px]">
 							<div
-								className={`flex h-full w-full items-center justify-center bg-secondary transition-transform duration-1000 ${collided && "scale-75"}`}
-							>
-								{/* {`${rowIndex}-${colIndex}`} */}
-							</div>
+								className={`flex h-full w-full items-center justify-center bg-secondary text-xs font-semibold uppercase transition-all duration-1000 ${collided && "scale-75 rounded-md"}`}
+							></div>
 						</div>
 					);
 				}),
