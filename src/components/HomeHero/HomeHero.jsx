@@ -18,6 +18,9 @@ export default function HomeHero({ variants }) {
 					<h2 className="text-3xl font-black sm:text-4xl">hello there</h2>
 					<Title homeTitle={homeTitle} />
 					<p className="mt-3 text-sm normal-case sm:text-base">Experienced British Web Developer</p>
+					<p className="mt-3 text-sm font-black uppercase sm:text-base">
+						website currently work in progress
+					</p>
 					<div
 						className="mt-6 flex justify-center gap-4"
 						role="group"
