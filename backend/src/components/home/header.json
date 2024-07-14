@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_home_headers",
+  "info": {
+    "displayName": "Header",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "topText": {
+      "type": "string",
+      "required": true,
+      "default": "hello there"
+    },
+    "defaultTitleText": {
+      "type": "string",
+      "required": true,
+      "default": "i'm mike"
+    },
+    "subTitleText": {
+      "type": "string",
+      "required": true,
+      "default": "Experienced British Web Developer"
+    },
+    "resumeButtonText": {
+      "type": "string",
+      "required": true,
+      "default": "resume"
+    },
+    "projectsButtonText": {
+      "type": "string",
+      "required": true,
+      "default": "projects"
+    }
+  }
+}
