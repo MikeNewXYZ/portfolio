@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ pageDescription | default: "Portfolio for MikeNewXYZ" }}">
+    <meta name="keywords" content="{{ pageKeywords | default: "portfolio, webdev, frontend, fullstack, shopify" }}">
+    <meta name="author" content="{{ pageAuthor | default: "MikeNewXYZ" }}">
+    <title>{{ pageTitle | default: "Portfolio - MikeNewXYZ" }}</title>
+
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/transition.css">
+
+    <script src="https://unpkg.com/swup@4"></script>
+  </head>
+  <body>
+    <main id="swup" class="transition-fade bg-blue-500">
+      {% block %}
+      {% endblock %}
+    </main>
+
+    <script>
+      const swup = new Swup();
+    </script>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 {
-	"printWidth": 100,
+	"printWidth": 80,
 	"tabWidth": 2,
 	"useTabs": true,
 	"semi": true,
@@ -9,5 +9,5 @@
 	"jsxBracketSameLine": false,
 	"arrowParens": "always",
 	"requirePragma": false,
-	"plugins": ["prettier-plugin-tailwindcss"]
+	"plugins": ["@shopify/prettier-plugin-liquid"]
 }
