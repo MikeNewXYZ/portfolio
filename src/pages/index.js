@@ -1,9 +1,9 @@
+import { useState } from "react";
 import Head from "next/head";
 import HomeBackground from "@/backgrounds/HomeBackground/HomeBackground";
+import HomeHeader from "@/components/HomeHeader/HomeHeader";
 
 // TODO: ADD Open graph metadata
-// TODO: ADD Animated background
-// TODO: ADD Floating header with navigation
 // TODO: ADD Contact link
 
 export async function getStaticProps() {
@@ -20,7 +20,7 @@ export async function getStaticProps() {
 }
 
 export default function HomePage({ pageData }) {
-	console.log(pageData);
+	const [headerTitle, setHeaderTitle] = useState(pageData.header_default_title);
 
 	return (
 		<>
@@ -31,7 +31,16 @@ export default function HomePage({ pageData }) {
 				<meta name="author" content="MikeNewXYZ" />
 			</Head>
 
-			<main> hello world </main>
+			<main className="flex h-dvh w-full items-center justify-center overflow-hidden p-2 landscape:pb-2 md:landscape:pb-10">
+				<HomeHeader
+					topText={pageData.header_top_text}
+					title={headerTitle}
+					defaultTitle={pageData.header_default_title}
+					setHeaderTitle={setHeaderTitle}
+					subText={pageData.header_subtext}
+					navigationLinks={pageData.header_navigation_links}
+				/>
+			</main>
 
 			<HomeBackground />
 		</>
