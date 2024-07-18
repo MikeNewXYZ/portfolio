@@ -2,17 +2,17 @@ import Head from "next/head";
 
 // TODO: ADD Open graph metadata
 
-export default function ContactPage() {
+export default function ProjectsPage() {
 	return (
 		<>
 			<Head>
-				<title>Contact - MikeNewXYZ</title>
-				<meta name="description" content="Contact MikeNewXYZ" />
+				<title>Projects - MikeNewXYZ</title>
+				<meta name="description" content="Projects by MikeNewXYZ" />
 				<meta name="keywords" content="HTML, CSS, JavaScript, Shopify Themes, Liquid & ReactJS" />
 				<meta name="author" content="MikeNewXYZ" />
 			</Head>
 
-			<main> Contact Page </main>
+			<main> Projects Page </main>
 		</>
 	);
 }
