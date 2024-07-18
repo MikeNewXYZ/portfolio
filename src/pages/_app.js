@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
 	return (
 		<div
 			className={twMerge(
-				"min-h-dvh min-w-full overflow-x-hidden bg-secondary font-space-grotesk text-primary",
+				"min-h-dvh min-w-full overflow-x-hidden font-space-grotesk",
 				spaceGrotesk.variable,
 			)}
 		>
