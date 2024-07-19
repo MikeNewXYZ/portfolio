@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
 	return (
 		<motion.div
 			className={twMerge(
-				"min-h-dvh min-w-full overflow-x-hidden font-space-grotesk",
+				"relative min-h-dvh min-w-full overflow-x-hidden font-space-grotesk",
 				spaceGrotesk.variable,
 			)}
 			variants={rootAnimation}
