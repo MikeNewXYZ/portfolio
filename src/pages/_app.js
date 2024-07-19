@@ -1,22 +1,16 @@
 import "@/styles/globals.css";
-import { Space_Grotesk } from "next/font/google";
-import { twMerge } from "tailwind-merge";
-
-const spaceGrotesk = Space_Grotesk({
-	subsets: ["latin"],
-	display: "swap",
-	variable: "--font-space-grotesk",
-});
+import { useRouter } from "next/router";
+import { AnimatePresence } from "framer-motion";
+import RootLayout from "@/layouts/RootLayout/RootLayout";
 
 export default function App({ Component, pageProps }) {
+	const router = useRouter();
+
 	return (
-		<div
-			className={twMerge(
-				"min-h-dvh min-w-full overflow-x-hidden font-space-grotesk",
-				spaceGrotesk.variable,
-			)}
-		>
-			<Component {...pageProps} />
-		</div>
+		<AnimatePresence mode="wait" initial={false}>
+			<RootLayout key={router.asPath}>
+				<Component {...pageProps} />
+			</RootLayout>
+		</AnimatePresence>
 	);
 }

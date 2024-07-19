@@ -5,6 +5,20 @@ import Button from "../Button/Button";
 
 const MotionLink = motion(Link);
 
+const linkAnimation = {
+	hide: {
+		opacity: 0,
+		y: "100%",
+	},
+	show: {
+		opacity: 1,
+		y: "0%",
+		transition: {
+			delay: 0.5,
+		},
+	},
+};
+
 export default function HomeContactLink({
 	linkText = "",
 	linkPath = "",
@@ -13,7 +27,15 @@ export default function HomeContactLink({
 }) {
 	return (
 		<div className="pointer-events-none fixed left-0 top-0 z-10 flex h-dvh w-full items-end justify-end p-2 sm:p-4">
-			<MotionLink className="w-full sm:w-fit" href={linkPath} aria-label={`view ${linkText}`}>
+			<MotionLink
+				className="w-full sm:w-fit"
+				href={linkPath}
+				variants={linkAnimation}
+				initial="hide"
+				animate="show"
+				exit="hide"
+				aria-label={`view ${linkText}`}
+			>
 				<Button
 					className="group pointer-events-auto flex w-full items-center justify-center gap-2 bg-secondary text-2xl sm:w-fit"
 					onMouseEnter={() => setHeaderTitle(linkText)}

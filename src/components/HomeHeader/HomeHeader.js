@@ -3,6 +3,26 @@ import Link from "next/link";
 import useFloatingCard from "@/hooks/useFloatingCard/useFloatingCard";
 import Button from "../Button/Button";
 
+const headerAnimation = {
+	hide: {
+		opacity: 0,
+		scale: 0.8,
+	},
+	show: {
+		opacity: 1,
+		scale: 1,
+		transition: {
+			duration: 0.5,
+			ease: "anticipate",
+		},
+	},
+};
+
+const titleAnimation = {
+	hide: { opacity: 0 },
+	show: { opacity: 1 },
+};
+
 export default function HomeHeader({
 	topText = "",
 	title = "",
@@ -17,7 +37,7 @@ export default function HomeHeader({
 	const titleKey = `${title}-${Math.random()}`;
 
 	return (
-		<div ref={outerRef}>
+		<motion.div ref={outerRef} variants={headerAnimation} initial="hide" animate="show" exit="hide">
 			<div ref={innerRef}>
 				<div className="text-center">
 					<h2 className="text-3xl font-black uppercase sm:text-4xl">{topText}</h2>
@@ -26,9 +46,10 @@ export default function HomeHeader({
 						<motion.h1
 							key={titleKey}
 							className="text-6xl font-black uppercase sm:text-8xl"
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							exit={{ opacity: 0 }}
+							variants={titleAnimation}
+							initial="hide"
+							animate="show"
+							exit="hide"
 							transition={{ duration: 0.5 }}
 						>
 							{title}
@@ -52,6 +73,6 @@ export default function HomeHeader({
 					))}
 				</nav>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
