@@ -6,8 +6,8 @@ import Button from "../Button/Button";
 export default function HomeHeader({
 	topText = "",
 	title = "",
-	defaultTitle = "",
 	setHeaderTitle = () => {},
+	resetHeaderTitle = () => {},
 	subText = "",
 	navigationLinks = [],
 }) {
@@ -44,7 +44,7 @@ export default function HomeHeader({
 							key={index}
 							href={link_path}
 							onMouseEnter={() => setHeaderTitle(link_text)}
-							onMouseLeave={() => setHeaderTitle(defaultTitle)}
+							onMouseLeave={resetHeaderTitle}
 							aria-label={`view ${link_text}`}
 						>
 							<Button className="px-2 py-1 sm:text-base">{link_text}</Button>

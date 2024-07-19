@@ -2,6 +2,7 @@ import { useState } from "react";
 import Head from "next/head";
 import HomeBackground from "@/backgrounds/HomeBackground/HomeBackground";
 import HomeHeader from "@/components/HomeHeader/HomeHeader";
+import HomeContactLink from "@/components/HomeContactLink/HomeContactLink";
 
 // TODO: ADD Open graph metadata
 // TODO: ADD Contact link
@@ -22,6 +23,8 @@ export async function getStaticProps() {
 export default function HomePage({ pageData }) {
 	const [headerTitle, setHeaderTitle] = useState(pageData.header_default_title);
 
+	const resetHeaderTitle = () => setHeaderTitle(pageData.header_default_title);
+
 	return (
 		<>
 			<Head>
@@ -35,10 +38,17 @@ export default function HomePage({ pageData }) {
 				<HomeHeader
 					topText={pageData.header_top_text}
 					title={headerTitle}
-					defaultTitle={pageData.header_default_title}
 					setHeaderTitle={setHeaderTitle}
+					resetHeaderTitle={resetHeaderTitle}
 					subText={pageData.header_subtext}
 					navigationLinks={pageData.header_navigation_links}
+				/>
+
+				<HomeContactLink
+					linkText={pageData.contact_link_text}
+					linkPath={pageData.contact_link_path}
+					setHeaderTitle={setHeaderTitle}
+					resetHeaderTitle={resetHeaderTitle}
 				/>
 			</main>
 
