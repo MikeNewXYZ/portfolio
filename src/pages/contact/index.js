@@ -1,3 +1,4 @@
+import ContactBackground from "@/backgrounds/ContactBackground/ContactBackground";
 import Head from "next/head";
 
 // TODO: ADD Open graph metadata
@@ -13,6 +14,8 @@ export default function ContactPage() {
 			</Head>
 
 			<main> Contact Page </main>
+
+			<ContactBackground />
 		</>
 	);
 }
