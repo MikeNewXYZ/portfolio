@@ -5,7 +5,6 @@ import HomeHeader from "@/components/HomeHeader/HomeHeader";
 import HomeContactLink from "@/components/HomeContactLink/HomeContactLink";
 
 // TODO: ADD Open graph metadata
-// TODO: ADD Contact link
 
 export async function getStaticProps() {
 	try {
