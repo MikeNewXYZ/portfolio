@@ -36,7 +36,7 @@ const TextArea = forwardRef(function Input({ className, ...props }, ref) {
 			{...props}
 			ref={ref}
 			className={twMerge(
-				"h-48 resize-none border-2 border-primary bg-transparent p-1 transition-transform duration-500 focus:-translate-y-0.5 focus:outline-none",
+				"h-32 resize-none border-2 border-primary bg-transparent p-1 transition-transform duration-500 focus:-translate-y-0.5 focus:outline-none sm:h-48",
 				className,
 			)}
 		/>

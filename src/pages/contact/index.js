@@ -1,6 +1,7 @@
 import Head from "next/head";
 import ContactBackground from "@/backgrounds/ContactBackground/ContactBackground";
 import ContactForm from "@/components/ContactForm/ContactForm";
+import BackToHomeLink from "@/components/BackToHomeLink/BackToHomeLink";
 
 // TODO: ADD Open graph metadata
 
@@ -29,6 +30,8 @@ export default function ContactPage({ pageData }) {
 
 			<main className="flex h-dvh w-full items-center justify-center overflow-hidden p-2 landscape:pb-2 md:landscape:pb-10">
 				<ContactForm />
+
+				<BackToHomeLink />
 			</main>
 
 			<ContactBackground />
