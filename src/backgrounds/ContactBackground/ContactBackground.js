@@ -11,7 +11,7 @@ const sphereWrapperAnimation = {
 	show: {
 		opacity: 1,
 		x: ["0%", "-10%", "0%", "10%", "0%"],
-		y: ["0%", "-20%", "0%"],
+		y: ["0%", "-20%", "10%", "0%"],
 		scale: [0.8, 1],
 		transition: {
 			x: {
@@ -81,7 +81,7 @@ export default function ContactBackground({
 
 			<AnimatePresence mode="wait" initial>
 				<motion.div
-					className={`${styles["sphere-wrapper"]} absolute top-[80%] origin-top`}
+					className={`${styles["sphere-wrapper"]} absolute top-[60%] origin-top`}
 					style={{
 						"--radius": `${radius}px`,
 						"--rotation-duration": `${rotationDuration}s`,
