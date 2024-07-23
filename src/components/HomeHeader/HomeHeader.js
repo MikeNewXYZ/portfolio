@@ -37,7 +37,7 @@ export default function HomeHeader({
 
 					<HeaderTitle title={title} />
 
-					<p className="mt-2 text-sm normal-case sm:text-base">{subText}</p>
+					<p className="mx-auto mt-2 max-w-80 text-sm normal-case sm:text-base">{subText}</p>
 				</div>
 
 				<nav className="mt-4 flex justify-center gap-4" aria-label="navigation links">
