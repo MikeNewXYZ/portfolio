@@ -1,23 +1,5 @@
 import { Chat, ChatDots } from "@phosphor-icons/react/dist/ssr";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import Button from "../Button/Button";
-
-const MotionLink = motion(Link);
-
-const linkAnimation = {
-	hide: {
-		opacity: 0,
-		y: "100%",
-	},
-	show: {
-		opacity: 1,
-		y: "0%",
-		transition: {
-			delay: 0.5,
-		},
-	},
-};
+import CornerLink from "../CornerLink/CornerLink";
 
 export default function HomeContactLink({
 	linkText = "",
@@ -26,27 +8,17 @@ export default function HomeContactLink({
 	resetHeaderTitle = () => {},
 }) {
 	return (
-		<div className="pointer-events-none fixed left-0 top-0 z-10 flex h-dvh w-full items-end justify-end p-2 sm:p-4">
-			<MotionLink
-				className="w-full sm:w-fit"
-				href={linkPath}
-				variants={linkAnimation}
-				initial="hide"
-				animate="show"
-				exit="hide"
-				aria-label={`view ${linkText}`}
-			>
-				<Button
-					className="group pointer-events-auto flex w-full items-center justify-center gap-2 bg-secondary text-2xl sm:w-fit"
-					onMouseEnter={() => setHeaderTitle(linkText)}
-					onMouseLeave={resetHeaderTitle}
-				>
-					<Chat className="pb-0.5 text-3xl group-hover:hidden" />
-					<ChatDots className="hidden pb-0.5 text-3xl group-hover:block group-hover:animate-pulse" />
+		<CornerLink
+			linkClassName="group"
+			linkPath={linkPath}
+			onMouseEnter={() => setHeaderTitle(linkText)}
+			onMouseLeave={resetHeaderTitle}
+			aria-label={`go to ${linkPath}`}
+		>
+			<Chat className="pb-0.5 text-3xl group-hover:hidden" />
+			<ChatDots className="hidden pb-0.5 text-3xl group-hover:block group-hover:animate-pulse" />
 
-					<span>{linkText}</span>
-				</Button>
-			</MotionLink>
-		</div>
+			<span>{linkText}</span>
+		</CornerLink>
 	);
 }
