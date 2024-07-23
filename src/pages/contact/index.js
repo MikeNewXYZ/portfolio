@@ -1,6 +1,5 @@
 import Head from "next/head";
 import ContactBackground from "@/backgrounds/ContactBackground/ContactBackground";
-import IntroHeading from "@/components/IntroHeading/IntroHeading";
 import ContactForm from "@/components/ContactForm/ContactForm";
 
 // TODO: ADD Open graph metadata
@@ -29,11 +28,6 @@ export default function ContactPage({ pageData }) {
 			</Head>
 
 			<main className="flex h-dvh w-full items-center justify-center overflow-hidden p-2 landscape:pb-2 md:landscape:pb-10">
-				{/* <IntroHeading
-					title={pageData.intro_heading_title}
-					subTitle={pageData.intro_heading_subtitle}
-				/> */}
-
 				<ContactForm />
 			</main>
 
