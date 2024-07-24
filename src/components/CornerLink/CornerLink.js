@@ -15,7 +15,7 @@ export default function CornerLink({
 	return (
 		<div
 			className={twMerge(
-				"pointer-events-none fixed left-0 top-0 z-10 flex h-dvh w-full items-end p-2 sm:p-4",
+				"pointer-events-none fixed left-0 top-0 z-50 flex h-dvh w-full items-end p-2 sm:p-4",
 				overlayClassName,
 				rightSide ? "justify-end" : "justify-start",
 			)}
