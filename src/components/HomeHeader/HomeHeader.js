@@ -37,10 +37,12 @@ export default function HomeHeader({
 
 					<HeaderTitle title={title} />
 
-					<p className="mx-auto mt-2 max-w-80 text-sm normal-case sm:text-base">{subText}</p>
+					<p className="mx-auto mt-1 max-w-80 text-balance text-sm normal-case sm:text-base">
+						{subText}
+					</p>
 				</div>
 
-				<nav className="mt-4 flex justify-center gap-4" aria-label="navigation links">
+				<nav className="mt-6 flex justify-center gap-4" aria-label="navigation links">
 					{navigationLinks.map(({ link_text, link_path }, index) => (
 						<Link
 							key={index}
