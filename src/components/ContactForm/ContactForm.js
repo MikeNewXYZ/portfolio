@@ -35,7 +35,7 @@ export default function ContactForm() {
 			if (!response.ok) throw new Error(await response.text());
 
 			reset();
-			toast("Contact from sent!");
+			toast("Contact form sent!");
 		} catch (error) {
 			toast(error.message);
 		}
