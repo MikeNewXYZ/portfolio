@@ -21,7 +21,7 @@ const sphereWrapperAnimation = {
 				repeatType: "mirror",
 			},
 			y: {
-				duration: 60,
+				duration: 90,
 				ease: "easeInOut",
 				repeat: Infinity,
 				repeatType: "mirror",
