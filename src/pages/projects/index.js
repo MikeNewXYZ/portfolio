@@ -3,6 +3,7 @@ import BackToHomeLink from "@/components/BackToHomeLink/BackToHomeLink";
 import Projects from "@/components/Projects";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
+import Background from "@/components/Background";
 
 // TODO: ADD Open graph metadata
 
@@ -69,6 +70,8 @@ export default function ProjectsPage({ projectPage, projectsData }) {
 
 				<BackToHomeLink />
 			</main>
+
+			<Background.Projects />
 		</>
 	);
 }
