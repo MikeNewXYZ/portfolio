@@ -6,7 +6,7 @@ const titleAnimation = {
 	show: { opacity: 1 },
 };
 
-export default function HeaderTitle({ title }) {
+export default function Title({ title }) {
 	const [titleText, setTitleText] = useState(title);
 
 	useEffect(() => {

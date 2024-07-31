@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
-import Button from "../Button/Button";
-import Form from "../Form/Form";
+import Button from "../../Button/Button";
+import Form from "../../Form/Form";
 import useFloatingCard from "@/hooks/useFloatingCard/useFloatingCard";
 
 const formAnimation = {

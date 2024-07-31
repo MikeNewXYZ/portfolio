@@ -66,7 +66,7 @@ function generateNodes(nodeCount, radius, glowCycleDuration) {
 	return nodes;
 }
 
-export default function ContactBackground({
+export default function Contact({
 	nodeCount = 200,
 	nodeSize = 5,
 	radius = 1000,

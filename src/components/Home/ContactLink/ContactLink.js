@@ -1,7 +1,7 @@
 import { Chat, ChatDots } from "@phosphor-icons/react/dist/ssr";
-import CornerLink from "../CornerLink/CornerLink";
+import CornerLink from "../../CornerLink/CornerLink";
 
-export default function HomeContactLink({
+export default function ContactLink({
 	linkText = "",
 	linkPath = "",
 	setHeaderTitle = () => {},

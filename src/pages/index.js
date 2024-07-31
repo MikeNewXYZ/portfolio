@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
-import HomeBackground from "@/backgrounds/HomeBackground/HomeBackground";
-import HomeHeader from "@/components/HomeHeader/HomeHeader";
-import HomeContactLink from "@/components/HomeContactLink/HomeContactLink";
+import Background from "@/components/Background";
+import Home from "@/components/Home";
 
 // TODO: ADD Open graph metadata
 
@@ -34,16 +33,16 @@ export default function HomePage({ pageData }) {
 			</Head>
 
 			<main className="flex h-dvh w-full items-center justify-center overflow-hidden p-2 landscape:pb-2 md:landscape:pb-10">
-				<HomeHeader
+				<Home.Header
 					topText={pageData.header_top_text}
 					title={headerTitle}
-					setHeaderTitle={setHeaderTitle}
-					resetHeaderTitle={resetHeaderTitle}
+					setTitle={setHeaderTitle}
+					resetTitle={resetHeaderTitle}
 					subText={pageData.header_subtext}
 					navigationLinks={pageData.header_navigation_links}
 				/>
 
-				<HomeContactLink
+				<Home.ContactLink
 					linkText={pageData.contact_link_text}
 					linkPath={pageData.contact_link_path}
 					setHeaderTitle={setHeaderTitle}
@@ -51,7 +50,7 @@ export default function HomePage({ pageData }) {
 				/>
 			</main>
 
-			<HomeBackground />
+			<Background.Home />
 		</>
 	);
 }

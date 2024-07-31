@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ShootingStar } from "@phosphor-icons/react/dist/ssr";
 import styles from "./styles.module.css";
 
-export default function HomeBackground() {
+export default function Home() {
 	const [rotateDeg, setRotateDeg] = useState(0);
 
 	useEffect(() => {

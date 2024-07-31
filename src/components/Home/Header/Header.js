@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import useFloatingCard from "@/hooks/useFloatingCard/useFloatingCard";
-import Button from "../Button/Button";
-import HeaderTitle from "./HeaderTItle/HeaderTitle";
+import Button from "../../Button/Button";
+import Title from "./Title/Title";
 
 const headerAnimation = {
 	hide: {
@@ -19,11 +19,11 @@ const headerAnimation = {
 	},
 };
 
-export default function HomeHeader({
+export default function Header({
 	topText = "",
 	title = "",
-	setHeaderTitle = () => {},
-	resetHeaderTitle = () => {},
+	setTitle = () => {},
+	resetTitle = () => {},
 	subText = "",
 	navigationLinks = [],
 }) {
@@ -35,7 +35,7 @@ export default function HomeHeader({
 				<div className="text-center">
 					<h2 className="text-3xl font-black uppercase sm:text-4xl">{topText}</h2>
 
-					<HeaderTitle title={title} />
+					<Title title={title} />
 
 					<p className="mx-auto mt-1 max-w-80 text-balance text-sm normal-case sm:text-base">
 						{subText}
@@ -47,8 +47,8 @@ export default function HomeHeader({
 						<Link
 							key={index}
 							href={link_path}
-							onMouseEnter={() => setHeaderTitle(link_text)}
-							onMouseLeave={resetHeaderTitle}
+							onMouseEnter={() => setTitle(link_text)}
+							onMouseLeave={resetTitle}
 							aria-label={`view ${link_text}`}
 						>
 							<Button className="px-2 py-1 sm:text-base">{link_text}</Button>
