@@ -1,6 +1,8 @@
 import Head from "next/head";
 import BackToHomeLink from "@/components/BackToHomeLink/BackToHomeLink";
 import Projects from "@/components/Projects";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 // TODO: ADD Open graph metadata
 
@@ -28,6 +30,10 @@ export async function getStaticProps() {
 }
 
 export default function ProjectsPage({ projectPage, projectsData }) {
+	useEffect(() => {
+		toast("This page is still a work in progress...", { autoClose: 10000 });
+	}, []);
+
 	return (
 		<>
 			<Head>
