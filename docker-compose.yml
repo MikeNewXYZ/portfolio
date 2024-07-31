@@ -1,0 +1,22 @@
+version: "3"
+services:
+  frontend:
+    image: mikenewxyz/portfolio:latest
+    ports:
+      - 3400:3000
+  directus:
+    image: directus/directus:10.13.1
+    ports:
+      - 3401:8055
+    volumes:
+      - ./database:/directus/database
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+    environment:
+      SECRET: ${SECRET_KEY}
+      ADMIN_EMAIL: admin@example.com
+      ADMIN_PASSWORD: d1r3ctu5
+      DB_CLIENT: sqlite3
+      DB_FILENAME: /directus/database/data.db
+      WEBSOCKETS_ENABLED: "true"
+networks: {}
