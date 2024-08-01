@@ -51,7 +51,7 @@ export default function ProjectsPage({ projectPage, projectsData }) {
 						subtitle={projectPage.header_subtitle}
 					/>
 
-					<div className="mt-16 grid w-full grid-cols-1 gap-6 sm:gap-14 lg:grid-cols-2 xl:grid-cols-3">
+					<div className="mt-8 grid w-full grid-cols-1 gap-6 sm:mt-10 sm:gap-14 md:mt-12 lg:grid-cols-2 xl:grid-cols-3">
 						{projectsData.map(
 							({ id, title, thumbnail, description, technologies, app_url, repo_url }) => (
 								<Projects.Card
