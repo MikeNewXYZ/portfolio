@@ -59,8 +59,8 @@ export default function Projects() {
 						}}
 						transition={{
 							opacity: { duration: 2 },
-							top: { type: "spring", stiffness: 40, damping: 150, mass: 400 },
-							left: { type: "spring", stiffness: 40, damping: 150, mass: 400 },
+							top: { type: "spring", stiffness: 100, damping: 150, mass: 250 },
+							left: { type: "spring", stiffness: 100, damping: 150, mass: 250 },
 							rotate: { duration: 20, repeat: Infinity },
 						}}
 					></motion.div>
