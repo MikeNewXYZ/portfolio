@@ -1,14 +1,16 @@
+import { useCallback, useEffect, useState } from "react";
 import Head from "next/head";
 import BackToHomeLink from "@/components/BackToHomeLink/BackToHomeLink";
 import Projects from "@/components/Projects";
 import Background from "@/components/Background";
+import { toast } from "react-toastify";
 
 // TODO: ADD Open graph metadata
 
 export async function getStaticProps() {
 	const fetchUrls = [
 		"https://portfolio-cms.mikenew.xyz/items/projects_page",
-		"https://portfolio-cms.mikenew.xyz/items/projects_data",
+		"https://portfolio-cms.mikenew.xyz/items/projects_data?limit=6&page=1",
 	];
 
 	try {
@@ -20,7 +22,7 @@ export async function getStaticProps() {
 		const responseObjects = await Promise.all(responses.map((res) => res.json()));
 
 		return {
-			props: { projectPage: responseObjects[0].data, projectsData: responseObjects[1].data },
+			props: { projectPage: responseObjects[0].data, initialProjectsData: responseObjects[1].data },
 		};
 	} catch (error) {
 		console.error(error);
@@ -28,7 +30,58 @@ export async function getStaticProps() {
 	}
 }
 
-export default function ProjectsPage({ projectPage, projectsData }) {
+export default function ProjectsPage({ projectPage, initialProjectsData }) {
+	const [projectsData, setProjectsData] = useState(initialProjectsData);
+	const [noMoreProjectsData, setNoMoreProjectsData] = useState(false);
+	const [page, setPage] = useState(1);
+	const [loading, setLoading] = useState(false);
+
+	const fetchMoreProjectsData = async () => {
+		setLoading(true);
+		toast("fetching more projects");
+
+		try {
+			const response = await fetch(
+				`https://portfolio-cms.mikenew.xyz/items/projects_data?limit=6&page=${page + 1}`,
+			);
+
+			if (!response.ok) throw new Error("Failed to fetch projects data.");
+
+			const responseObjects = await response.json();
+			const data = responseObjects.data;
+
+			console.log(data);
+
+			if (data.length <= 0) {
+				setNoMoreProjectsData(true);
+				return;
+			}
+
+			setPage((prev) => prev + 1);
+			setLoading(false);
+			setProjectsData((prev) => [...prev, ...data]);
+		} catch (error) {}
+	};
+
+	const onScroll = useCallback(async () => {
+		if (loading || noMoreProjectsData) return;
+
+		const scrollAmount = window.innerHeight + window.scrollY;
+		const pageHeight = document.body.offsetHeight;
+
+		if (scrollAmount >= pageHeight) {
+			await fetchMoreProjectsData();
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [loading, noMoreProjectsData, page]);
+
+	useEffect(() => {
+		addEventListener("scroll", onScroll);
+
+		return () => removeEventListener("scroll", onScroll);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [onScroll]);
+
 	return (
 		<>
 			<Head>
@@ -47,9 +100,9 @@ export default function ProjectsPage({ projectPage, projectsData }) {
 
 					<div className="mt-8 grid w-full grid-cols-1 gap-6 sm:mt-10 sm:gap-14 md:mt-12 lg:grid-cols-2 xl:grid-cols-3">
 						{projectsData.map(
-							({ id, title, thumbnail, description, technologies, app_url, repo_url }) => (
+							({ title, thumbnail, description, technologies, app_url, repo_url }, index) => (
 								<Projects.Card
-									key={id}
+									key={index}
 									title={title}
 									thumbnail={thumbnail}
 									description={description}
