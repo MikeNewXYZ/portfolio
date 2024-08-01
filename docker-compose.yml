@@ -4,6 +4,8 @@ services:
     image: mikenewxyz/portfolio:latest
     ports:
       - 3400:3000
+    environment:
+      REVALIDATE_TOKEN: ${REVALIDATE_TOKEN}
   directus:
     image: directus/directus:10.13.1
     ports:
