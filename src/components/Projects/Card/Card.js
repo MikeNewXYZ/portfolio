@@ -20,11 +20,8 @@ export default function Card({
 				className="relative h-full w-full overflow-hidden border-4 border-primary"
 			>
 				<div className="absolute left-0 top-0 z-20 flex h-full w-full flex-col items-start justify-end p-4">
-					<div className="flex w-full">
-						<div className="flex-1">
-							<h1 className="text-pretty font-bold uppercase">{title}</h1>
-							<p className="mt-0.5 text-pretty text-xs">{description}</p>
-						</div>
+					<div className="flex w-full gap-1">
+						<h1 className="flex-1 text-pretty font-bold uppercase">{title}</h1>
 
 						<nav className="flex h-fit gap-1">
 							{appUrl && (
@@ -45,6 +42,8 @@ export default function Card({
 						</nav>
 					</div>
 
+					<p className="mt-1 w-full text-pretty text-xs">{description}</p>
+
 					<ul className="mt-2 flex flex-wrap gap-x-2 gap-y-1 text-xs uppercase opacity-80">
 						{technologies.map((technology, index) => (
 							<li key={index}>{technology}</li>
@@ -52,7 +51,7 @@ export default function Card({
 					</ul>
 				</div>
 
-				<div className="absolute left-0 top-0 z-10 h-full w-full bg-secondary opacity-60"></div>
+				<div className="absolute left-0 top-0 z-10 h-full w-full bg-secondary opacity-70"></div>
 
 				<div className="absolute left-0 top-0 z-0 h-full w-full overflow-hidden">
 					<Image
