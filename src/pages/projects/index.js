@@ -54,7 +54,7 @@ export default function ProjectsPage({ projectPage, initialProjectData }) {
 
 			if (data.length <= 0) {
 				allProjectsDataLoaded.current = true;
-				throw new Error("All projects loaded");
+				throw new Error("No more projects to load");
 			}
 
 			setProjectsData((prev) => [...prev, ...data]);
