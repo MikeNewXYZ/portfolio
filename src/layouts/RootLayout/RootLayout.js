@@ -37,6 +37,7 @@ export default function RootLayout({ children }) {
 				transition={Slide}
 				closeButton={false}
 				autoClose={2000}
+				limit={1}
 				closeOnClick
 				hideProgressBar
 			/>
