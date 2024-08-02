@@ -31,14 +31,14 @@ export async function getStaticProps() {
 }
 
 export default function ProjectsPage({ projectPage, initialProjectData }) {
-	const isLoading = useRef(false);
+	const isprojectsDataLoading = useRef(false);
 	const projectsDataPage = useRef(2);
 	const allProjectsDataLoaded = useRef(false);
 	const [isProjectsDataImagePriority, setIsProjectsDataImagePriority] = useState(true);
 	const [projectsData, setProjectsData] = useState(initialProjectData);
 
 	const fetchMoreProjectsData = async () => {
-		isLoading.current = true;
+		isprojectsDataLoading.current = true;
 		setIsProjectsDataImagePriority(false);
 		toast("Loading more projects");
 
@@ -62,12 +62,12 @@ export default function ProjectsPage({ projectPage, initialProjectData }) {
 		} catch (error) {
 			toast(error.message);
 		} finally {
-			isLoading.current = false;
+			isprojectsDataLoading.current = false;
 		}
 	};
 
 	const onScroll = () => {
-		if (isLoading.current || allProjectsDataLoaded.current) return;
+		if (isprojectsDataLoading.current || allProjectsDataLoaded.current) return;
 
 		const scrollAmount = window.innerHeight + window.scrollY;
 		const pageHeight = document.body.offsetHeight;
