@@ -1,14 +1,16 @@
+import { useEffect, useRef, useState } from "react";
 import Head from "next/head";
 import BackToHomeLink from "@/components/BackToHomeLink/BackToHomeLink";
 import Projects from "@/components/Projects";
 import Background from "@/components/Background";
+import { toast } from "react-toastify";
 
 // TODO: ADD Open graph metadata
 
 export async function getStaticProps() {
 	const fetchUrls = [
 		"https://portfolio-cms.mikenew.xyz/items/projects_page",
-		"https://portfolio-cms.mikenew.xyz/items/projects_data",
+		"https://portfolio-cms.mikenew.xyz/items/projects_data?limit=6&page=1",
 	];
 
 	try {
@@ -20,7 +22,7 @@ export async function getStaticProps() {
 		const responseObjects = await Promise.all(responses.map((res) => res.json()));
 
 		return {
-			props: { projectPage: responseObjects[0].data, projectsData: responseObjects[1].data },
+			props: { projectPage: responseObjects[0].data, initialProjectData: responseObjects[1].data },
 		};
 	} catch (error) {
 		console.error(error);
@@ -28,7 +30,58 @@ export async function getStaticProps() {
 	}
 }
 
-export default function ProjectsPage({ projectPage, projectsData }) {
+export default function ProjectsPage({ projectPage, initialProjectData }) {
+	const isLoading = useRef(false);
+	const projectsDataPage = useRef(2);
+	const allProjectsDataLoaded = useRef(false);
+	const [projectsData, setProjectsData] = useState(initialProjectData);
+
+	const fetchMoreProjectsData = async () => {
+		isLoading.current = true;
+		toast("Loading more projects");
+
+		try {
+			const response = await fetch(
+				`https://portfolio-cms.mikenew.xyz/items/projects_data?limit=6&page=${projectsDataPage.current}`,
+			);
+
+			if (!response.ok) throw new Error("Failed to load projects");
+
+			const responseObjects = await response.json();
+			const data = responseObjects.data;
+
+			if (data.length <= 0) {
+				allProjectsDataLoaded.current = true;
+				throw new Error("All projects loaded");
+			}
+
+			setProjectsData((prev) => [...prev, ...data]);
+			projectsDataPage.current++;
+		} catch (error) {
+			toast(error.message);
+		} finally {
+			isLoading.current = false;
+		}
+	};
+
+	const onScroll = () => {
+		if (isLoading.current || allProjectsDataLoaded.current) return;
+
+		const scrollAmount = window.innerHeight + window.scrollY;
+		const pageHeight = document.body.offsetHeight;
+
+		if (scrollAmount >= pageHeight - 50) {
+			fetchMoreProjectsData();
+		}
+	};
+
+	useEffect(() => {
+		addEventListener("scroll", onScroll);
+
+		return () => removeEventListener("scroll", onScroll);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	return (
 		<>
 			<Head>
