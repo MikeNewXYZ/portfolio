@@ -34,10 +34,12 @@ export default function ProjectsPage({ projectPage, initialProjectData }) {
 	const isLoading = useRef(false);
 	const projectsDataPage = useRef(2);
 	const allProjectsDataLoaded = useRef(false);
+	const [isProjectsDataImagePriority, setIsProjectsDataImagePriority] = useState(true);
 	const [projectsData, setProjectsData] = useState(initialProjectData);
 
 	const fetchMoreProjectsData = async () => {
 		isLoading.current = true;
+		setIsProjectsDataImagePriority(false);
 		toast("Loading more projects");
 
 		try {
@@ -109,6 +111,7 @@ export default function ProjectsPage({ projectPage, initialProjectData }) {
 									technologies={technologies}
 									appUrl={app_url}
 									repoUrl={repo_url}
+									priority={isProjectsDataImagePriority}
 								/>
 							),
 						)}

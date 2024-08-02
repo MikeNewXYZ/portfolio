@@ -10,6 +10,7 @@ export default function Card({
 	technologies = [],
 	appUrl = "",
 	repoUrl = "",
+	priority = true,
 }) {
 	const { outerRef, innerRef } = useFloatingCard({ multiplier: 3 });
 
@@ -58,9 +59,9 @@ export default function Card({
 						className="h-full w-full object-cover"
 						src={`https://portfolio-cms.mikenew.xyz/assets/${thumbnail}`}
 						alt={description}
+						priority={priority}
 						sizes="100%"
 						fill
-						priority
 					/>
 				</div>
 			</div>
