@@ -1,4 +1,6 @@
 ---
+import "@fontsource/space-grotesk";
+import HomeHero from "../component/HomeHero/index.astro";
 import DottedBackground from "../component/DottedBackground";
 ---
 
@@ -10,7 +12,18 @@ import DottedBackground from "../component/DottedBackground";
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body class="bg-secondary text-primary">
+	<body class="realtive bg-secondary text-primary">
+		<HomeHero
+			topText="hello there"
+			title="i'm mike"
+			subtitle="Experienced British Web Developer & Hobbyist Game Developer"
+		/>
 		<DottedBackground client:only="react" />
 	</body>
 </html>
+
+<style is:global>
+	body {
+		font-family: "Space Grotesk", system-ui;
+	}
+</style>

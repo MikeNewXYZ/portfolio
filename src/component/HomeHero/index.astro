@@ -1,0 +1,34 @@
+---
+import { CaretCircleDown } from "@phosphor-icons/react";
+
+type Props = {
+	topText: string;
+	title: string;
+	subtitle: string;
+};
+
+const { topText, title, subtitle } = Astro.props;
+
+// TODO MAKE view projects button interactive.
+// TODO ADD floating card effect for main text.
+---
+
+<section
+	class="relative container mx-auto h-dvh flex justify-center items-center p-2 landscape:pb-2 md:landscape:pb-10"
+>
+	<div class="text-center">
+		<h2 class="text-3xl font-black uppercase sm:text-4xl">{topText}</h2>
+		<h1 class="uppercase text-6xl font-black sm:text-8xl">{title}</h1>
+		<p class="mx-auto mt-1 max-w-80 text-balance text-sm normal-case sm:text-base">
+			{subtitle}
+		</p>
+	</div>
+
+	<div class="absolute bottom-5 flex flex-col justify-center items-center gap-2 animate-pulse">
+		<div class="text-center text-xs uppercase">view projects</div>
+
+		<button class="text-5xl hover:scale-95 transition-transform duration-500 ease-in-out">
+			<CaretCircleDown weight="fill" />
+		</button>
+	</div>
+</section>
