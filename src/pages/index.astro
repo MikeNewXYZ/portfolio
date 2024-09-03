@@ -1,5 +1,5 @@
 ---
-
+import DottedBackground from "../component/DottedBackground";
 ---
 
 <html lang="en">
@@ -10,7 +10,7 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-secondary">
+		<DottedBackground client:only="react" />
 	</body>
 </html>
