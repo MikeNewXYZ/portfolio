@@ -13,12 +13,20 @@ function DottedBackground() {
 
 	return (
 		<div
-			className={twMerge("fixed left-0 top-0 -z-10 h-dvh w-full", styles["fade-in"])}
+			className={twMerge("absolute inset-0 -z-10 h-dvh w-full overflow-hidden", styles["fade-in"])}
 			style={{ perspective: "1000px" }}
 		>
+			{/* FADE OUT GRADIANT */}
+			<div
+				className={twMerge("absolute left-0 top-0 z-30 h-full w-full", styles["fade-out"])}
+			></div>
+
+			{/* VIGNETTE */}
 			<div
 				className={twMerge("absolute left-0 top-0 z-20 h-full w-full", styles["vignette"])}
 			></div>
+
+			{/* SHOOTING STARS */}
 			<div
 				className={twMerge(
 					"absolute left-0 top-0 z-10 h-full w-full text-xl antialiased",
@@ -41,6 +49,8 @@ function DottedBackground() {
 					weight="fill"
 				/>
 			</div>
+
+			{/* DOTTED BACKGROUND */}
 			<div className={twMerge("h-full w-full", styles["background"])}></div>
 		</div>
 	);

@@ -1,8 +1,18 @@
+.fade-out {
+	background-image: linear-gradient(
+		to top,
+		theme(colors.secondary / 100%) 0%,
+		theme(colors.secondary / 30%) 10%,
+		theme(colors.secondary / 5%) 20%,
+		theme(colors.secondary / 0%) 100%
+	);
+}
+
 .vignette {
 	background-image: radial-gradient(
 		ellipse at center,
 		theme(colors.secondary / 0%) 0%,
-		theme(colors.secondary / 20%) 50%,
+		theme(colors.secondary / 10%) 50%,
 		theme(colors.secondary / 100%) 90%,
 		theme(colors.secondary / 100%) 100%
 	);

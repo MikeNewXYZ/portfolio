@@ -1,6 +1,7 @@
 ---
 import { CaretCircleDown } from "@phosphor-icons/react";
 import FloatingCard from "../FloatingCard";
+import DottedBackground from "./DottedBackground";
 
 type Props = {
 	topText: string;
@@ -39,3 +40,5 @@ const { topText, title, subtitle } = Astro.props;
 		</button>
 	</div>
 </section>
+
+<DottedBackground client:only="react" />
