@@ -1,7 +1,10 @@
 ---
 import "@fontsource/space-grotesk";
+import Header from "../component/Header/index.astro";
 import HomeHero from "../component/HomeHero/index.astro";
 import DottedBackground from "../component/DottedBackground";
+
+// TODO REMOVE absurd height when done testing.
 ---
 
 <html lang="en">
@@ -13,6 +16,7 @@ import DottedBackground from "../component/DottedBackground";
 		<title>Astro</title>
 	</head>
 	<body class="realtive bg-secondary text-primary">
+		<Header />
 		<HomeHero
 			topText="hello there"
 			title="i'm mike"
@@ -25,5 +29,6 @@ import DottedBackground from "../component/DottedBackground";
 <style is:global>
 	body {
 		font-family: "Space Grotesk", system-ui;
+		height: 10000px;
 	}
 </style>
