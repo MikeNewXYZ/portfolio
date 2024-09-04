@@ -1,0 +1,13 @@
+{
+	"title": "Portfolio",
+	"subtitle": "A simple portfolio.",
+	"technologies": ["Astro", "TypeScript", "React"],
+	"viewLink": {
+		"label": "View Website",
+		"url": "https://mikenew.xyz"
+	},
+	"repoLink": {
+		"label": "View Repo",
+		"url": "https://github.com/MikeNewXYZ/portfolio"
+	}
+}
