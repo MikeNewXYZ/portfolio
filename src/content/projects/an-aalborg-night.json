@@ -1,0 +1,14 @@
+{
+	"title": "An Aalborg Night",
+	"subtitle": "A neon styled Shopify theme.",
+	"thumbnail": "./thumbnail/an-aalborg-night.png",
+	"technologies": ["shopify themes", "tailwind", "daisy ui", "alpinejs", "animejs"],
+	"viewLink": {
+		"label": "View Website",
+		"url": "https://an-aalborg-night.myshopify.com"
+	},
+	"repoLink": {
+		"label": "View Repo",
+		"url": "https://github.com/MikeNewXYZ/an-aalborg-night-shopify-theme"
+	}
+}

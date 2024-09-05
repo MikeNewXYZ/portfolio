@@ -1,0 +1,10 @@
+{
+	"title": "Cramlington Community Chess Club",
+	"subtitle": "A site for a community chess club.",
+	"thumbnail": "./thumbnail/cramlington-community-chess-club.png",
+	"technologies": ["nextjs", "tailwind", "daisy ui", "directus cms", "sqlite"],
+	"viewLink": {
+		"label": "View Website",
+		"url": "https://cramlington-community-chess-club.com"
+	}
+}

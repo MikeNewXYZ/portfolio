@@ -1,7 +1,7 @@
 {
 	"title": "Portfolio",
 	"subtitle": "A simple portfolio.",
-	"thumbnail": "./images/portfolio-thumbnail.png",
+	"thumbnail": "./thumbnail/portfolio.png",
 	"technologies": ["Astro", "TypeScript", "React"],
 	"viewLink": {
 		"label": "View Website",

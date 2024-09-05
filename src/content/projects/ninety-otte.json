@@ -1,0 +1,14 @@
+{
+	"title": "Ninety Otte",
+	"subtitle": "A Shopify theme based on the style of Window 98.",
+	"thumbnail": "./thumbnail/ninety-otte.png",
+	"technologies": ["shopify themes", "98 css", "alpinejs", "web components"],
+	"viewLink": {
+		"label": "View Website",
+		"url": "https://ninety-otte.myshopify.com"
+	},
+	"repoLink": {
+		"label": "View Repo",
+		"url": "https://github.com/MikeNewXYZ/ninety-otte-shopify-theme"
+	}
+}

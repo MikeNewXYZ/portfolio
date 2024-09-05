@@ -1,0 +1,14 @@
+{
+	"title": "React Crossfade Carousel",
+	"subtitle": "A ReactJS component for creating a crossfade carousel.",
+	"thumbnail": "./thumbnail/react-crossfade-carousel.png",
+	"technologies": ["create react library", "reactjs", "styled components"],
+	"viewLink": {
+		"label": "View NPM",
+		"url": "https://www.npmjs.com/package/@notbaldrick/react-crossfade-carousel"
+	},
+	"repoLink": {
+		"label": "View Repo",
+		"url": "https://github.com/MikeNewXYZ/react-crossfade-carousel"
+	}
+}
