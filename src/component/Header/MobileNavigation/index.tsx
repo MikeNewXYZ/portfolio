@@ -42,7 +42,7 @@ function MobileNavigation() {
 			{/* FLOATING MENU */}
 			<button
 				className={twMerge(
-					"button fixed bottom-2 right-2 z-10 p-0 text-4xl transition-all duration-500 sm:hidden",
+					"button fixed bottom-2 right-2 z-10 bg-secondary p-0 text-4xl transition-all duration-500 sm:hidden",
 					isMenuButtonFloating
 						? "translate-y-0 opacity-100"
 						: "pointer-events-none translate-y-full opacity-0",
