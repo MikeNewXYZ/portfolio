@@ -84,6 +84,7 @@ function MobileNavigation() {
 
 				<div
 					role="button"
+					title="Close Menu"
 					className="absolute z-0 h-full w-full cursor-pointer bg-secondary opacity-70"
 					onClick={closeMenu}
 				></div>
