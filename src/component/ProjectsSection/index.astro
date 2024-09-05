@@ -3,9 +3,11 @@ import { getCollection } from "astro:content";
 import ProjectCard from "./ProjectCard/index.astro";
 
 const projects = await getCollection("projects");
+
+//TODO ADD loading button back when needed.
 ---
 
-<section id="projects-section" class="container mx-auto flex flex-col items-center px-2">
+<section id="projects-section" class="container mx-auto flex flex-col items-center px-2 pb-8">
 	<div class="mt-10 w-full max-w-[30rem] text-center sm:mt-12">
 		<h1 class="text-5xl font-bold uppercase sm:text-7xl">projects</h1>
 
@@ -20,5 +22,5 @@ const projects = await getCollection("projects");
 		{projects.map(({ data }) => <ProjectCard client:visible data={data} />)}
 	</div>
 
-	<button class="button text-4xl font-bold border-4 animate-pulse mt-8 sm:mt-16">load more</button>
+	<!-- <button class="button text-4xl font-bold border-4 animate-pulse mt-8 sm:mt-16">load more</button> -->
 </section>
