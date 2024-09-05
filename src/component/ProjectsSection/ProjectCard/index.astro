@@ -23,7 +23,7 @@ const { data } = Astro.props;
 			<h2 class="text-lg leading-none mt-0.5">{data.title}</h2>
 			<p class="text-sm">{data.subtitle}</p>
 
-			<ul class="text-xs uppercase opacity-70 flex gap-2 mt-1 flex-wrap">
+			<ul class="text-xs uppercase opacity-70 flex gap-x-2 gap-y-0.5 mt-1 flex-wrap">
 				{data.technologies.map((technology) => <li>{technology}</li>)}
 			</ul>
 		</div>
