@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import ProjectCard from "./ProjectCard/index.astro";
 
 const projects = await getCollection("projects");
 ---
@@ -16,12 +17,7 @@ const projects = await getCollection("projects");
 	<div
 		class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-16 justify-center mt-20"
 	>
-		<div class="w-full aspect-square border-4 border-primary">hi</div>
-		<div class="w-full aspect-square border-4 border-primary">hi</div>
-		<div class="w-full aspect-square border-4 border-primary">hi</div>
-		<div class="w-full aspect-square border-4 border-primary">hi</div>
-		<div class="w-full aspect-square border-4 border-primary">hi</div>
-		<div class="w-full aspect-square border-4 border-primary">hi</div>
+		{projects.map(({ data }) => <ProjectCard data={data} />)}
 	</div>
 
 	<button class="button text-4xl font-bold border-4 animate-pulse mt-8 sm:mt-16">load more</button>
