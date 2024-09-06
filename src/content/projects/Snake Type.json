@@ -1,0 +1,19 @@
+{
+	"subtitle": "Snake but its a typing game; made with TypeScript and the Canvas API.",
+	"thumbnailImageFileName": "thumbnail.png",
+	"technologies": ["typescript", "canvas api"],
+	"viewLink": {
+		"discriminant": true,
+		"value": {
+			"label": "Play Game",
+			"url": "https://snake-type.mikenew.xyz/"
+		}
+	},
+	"repoLink": {
+		"discriminant": true,
+		"value": {
+			"label": "View Repo",
+			"url": "https://github.com/MikeNewXYZ/snake-type"
+		}
+	}
+}

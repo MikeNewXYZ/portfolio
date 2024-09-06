@@ -1,26 +1,24 @@
 ---
-import { getCollection } from "astro:content";
-import ProjectCard from "./ProjectCard/index.astro";
+import CardGrid from "./CardGrid";
+import getProjects from "../../lib/getProjects";
 
-const projects = await getCollection("projects");
+const projects = await getProjects();
 
 //TODO ADD loading button back when needed.
 ---
 
 <section id="projects-section" class="container mx-auto flex flex-col items-center px-2 pb-8">
+	<!-- HEADING TEXT -->
 	<div class="mt-10 w-full max-w-[30rem] text-center sm:mt-12">
 		<h1 class="text-5xl font-bold uppercase sm:text-7xl">projects</h1>
-
 		<p class="mt-1 text-pretty text-xs opacity-90">
 			Here's a bunch of my personal and professional projects.
 		</p>
 	</div>
 
-	<div
-		class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 sm:gap-16 justify-center mt-20"
-	>
-		{projects.map(({ data }) => <ProjectCard client:visible data={data} />)}
-	</div>
+	<!-- CARD GRID -->
+	<CardGrid projects={projects} client:visible />
 
+	<!-- LOAD MORE CARDS BUTTON -->
 	<!-- <button class="button text-4xl font-bold border-4 animate-pulse mt-8 sm:mt-16">load more</button> -->
 </section>

@@ -1,0 +1,19 @@
+{
+	"subtitle": "A modern-looking Shopify theme.",
+	"thumbnailImageFileName": "thumbnail.png",
+	"technologies": ["shopify themes", "alpinejs", "animejs", "bootstrap"],
+	"viewLink": {
+		"discriminant": true,
+		"value": {
+			"label": "View Website",
+			"url": "https://baka-town.myshopify.com/"
+		}
+	},
+	"repoLink": {
+		"discriminant": true,
+		"value": {
+			"label": "View Repo",
+			"url": "https://github.com/MikeNewXYZ/baka-town-shopify-theme"
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"subtitle": "A flowery and soft-styled Shopify theme.",
+	"thumbnailImageFileName": "thumbnail.png",
+	"technologies": ["shopify themes", "alpinejs", "tailwind", "daisyui"],
+	"viewLink": {
+		"discriminant": true,
+		"value": {
+			"label": "View Website",
+			"url": "https://lass-orchid.myshopify.com/"
+		}
+	},
+	"repoLink": {
+		"discriminant": true,
+		"value": {
+			"label": "View Repo",
+			"url": "https://github.com/MikeNewXYZ/lass-orchid-shopify-theme"
+		}
+	}
+}

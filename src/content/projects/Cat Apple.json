@@ -1,0 +1,19 @@
+{
+	"subtitle": "A simplistic Shopify theme.",
+	"thumbnailImageFileName": "thumbnail.png",
+	"technologies": ["shopify themes", "tailwind", "daisy ui", "animejs", "alpinejs"],
+	"viewLink": {
+		"discriminant": true,
+		"value": {
+			"label": "View Website",
+			"url": "https://cat-apple.myshopify.com"
+		}
+	},
+	"repoLink": {
+		"discriminant": true,
+		"value": {
+			"label": "View Repo",
+			"url": "https://github.com/MikeNewXYZ/cat-apple-shopify-theme"
+		}
+	}
+}

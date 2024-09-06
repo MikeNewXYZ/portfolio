@@ -1,0 +1,19 @@
+{
+	"subtitle": "Generates a funny quiz using the OpenAI API.",
+	"thumbnailImageFileName": "thumbnail.png",
+	"technologies": ["openai api", "tailwind", "nodejs", "daisy ui"],
+	"viewLink": {
+		"discriminant": true,
+		"value": {
+			"label": "View Website",
+			"url": "https://absurd-quiz-app.mikenew.xyz"
+		}
+	},
+	"repoLink": {
+		"discriminant": true,
+		"value": {
+			"label": "View Repo",
+			"url": "https://github.com/MikeNewXYZ/absurd-quiz-app"
+		}
+	}
+}
