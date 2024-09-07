@@ -1,4 +1,4 @@
-import { type Projects } from "../../../lib/getProjects";
+import { type Projects } from "../../../lib/getProjects/type";
 import FloatingCard from "../../FloatingCard";
 
 type Props = {

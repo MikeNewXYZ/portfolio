@@ -1,35 +1,7 @@
-import { type GetImageResult, type ImageMetadata } from "astro";
+import { type ImageMetadata } from "astro";
+import { type Projects } from "./type";
 import { getCollection } from "astro:content";
 import { getImage } from "astro:assets";
-
-export type Projects = {
-	id: string;
-	collection: string;
-	data: {
-		subtitle: string;
-		thumbnailPath: string;
-		thumbnailImageData: GetImageResult;
-		technologies: string[];
-		viewLink:
-			| {
-					discriminant: true;
-					value: {
-						label: string;
-						url: string;
-					};
-			  }
-			| { discriminant: false };
-		repoLink:
-			| {
-					discriminant: true;
-					value: {
-						label: string;
-						url: string;
-					};
-			  }
-			| { discriminant: false };
-	};
-}[];
 
 async function getProjects() {
 	const projects: Projects = await getCollection("projects");
