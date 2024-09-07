@@ -1,6 +1,6 @@
 {
 	"subtitle": "A simplistic Shopify theme.",
-	"thumbnailImageFileName": "thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/Cat Apple/thumbnail.png",
 	"technologies": ["shopify themes", "tailwind", "daisy ui", "animejs", "alpinejs"],
 	"viewLink": {
 		"discriminant": true,

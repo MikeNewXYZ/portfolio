@@ -1,6 +1,6 @@
 {
 	"subtitle": "Snake but its a typing game; made with TypeScript and the Canvas API.",
-	"thumbnailImageFileName": "thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/Snake Type/thumbnail.png",
 	"technologies": ["typescript", "canvas api"],
 	"viewLink": {
 		"discriminant": true,

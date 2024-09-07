@@ -1,6 +1,6 @@
 {
 	"subtitle": "A flowery and soft-styled Shopify theme.",
-	"thumbnailImageFileName": "thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/Lass Orchid/thumbnail.png",
 	"technologies": ["shopify themes", "alpinejs", "tailwind", "daisyui"],
 	"viewLink": {
 		"discriminant": true,

@@ -1,6 +1,6 @@
 {
 	"subtitle": "A neon styled Shopify theme.",
-	"thumbnailImageFileName": "thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/An Aalborg Night/thumbnail.png",
 	"technologies": ["shopify themes", "tailwind", "daisy ui", "alpinejs", "animejs"],
 	"viewLink": {
 		"discriminant": true,

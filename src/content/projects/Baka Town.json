@@ -1,6 +1,6 @@
 {
 	"subtitle": "A modern-looking Shopify theme.",
-	"thumbnailImageFileName": "thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/Baka Town/thumbnail.png",
 	"technologies": ["shopify themes", "alpinejs", "animejs", "bootstrap"],
 	"viewLink": {
 		"discriminant": true,

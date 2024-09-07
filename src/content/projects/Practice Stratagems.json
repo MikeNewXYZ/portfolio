@@ -1,6 +1,6 @@
 {
 	"subtitle": "A game inspired by stratagems in the Helldivers game series.",
-	"thumbnailImageFileName": "thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/Practice Stratagems/thumbnail.png",
 	"technologies": ["reactjs", "tailwind"],
 	"viewLink": {
 		"discriminant": true,

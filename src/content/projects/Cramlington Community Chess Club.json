@@ -1,6 +1,6 @@
 {
 	"subtitle": "A site for a community chess club.",
-	"thumbnailImageFileName": "thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/Cramlington Community Chess Club/thumbnail.png",
 	"technologies": ["nextjs", "tailwind", "daisy ui", "directus cms", "sqlite"],
 	"viewLink": {
 		"discriminant": true,

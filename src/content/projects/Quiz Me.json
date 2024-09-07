@@ -1,6 +1,6 @@
 {
 	"subtitle": "Generates a quiz from a text document using the OpenAI API.",
-	"thumbnailImageFileName": "thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/Quiz Me/thumbnail.png",
 	"technologies": ["openai api", "nextjs", "tailwind"],
 	"viewLink": {
 		"discriminant": true,

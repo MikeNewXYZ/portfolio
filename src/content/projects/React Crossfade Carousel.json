@@ -1,6 +1,6 @@
 {
 	"subtitle": "A ReactJS component for creating a crossfade carousel.",
-	"thumbnailImageFileName": "thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/React Crossfade Carousel/thumbnail.png",
 	"technologies": ["create react library", "reactjs", "styled components"],
 	"viewLink": {
 		"discriminant": true,

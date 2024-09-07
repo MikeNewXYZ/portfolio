@@ -1,6 +1,6 @@
 {
 	"subtitle": "Generates a funny quiz using the OpenAI API.",
-	"thumbnailImageFileName": "thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/Absurd Quiz App/thumbnail.png",
 	"technologies": ["openai api", "tailwind", "nodejs", "daisy ui"],
 	"viewLink": {
 		"discriminant": true,

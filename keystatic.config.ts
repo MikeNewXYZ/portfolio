@@ -14,8 +14,10 @@ export default config({
 			schema: {
 				title: fields.text({ label: "Title", validation: { isRequired: true } }),
 				subtitle: fields.text({ label: "Subtitle", validation: { isRequired: true } }),
-				thumbnailImageFileName: fields.image({
-					label: "thumbnailImageFileName",
+				thumbnailPath: fields.image({
+					label: "Thumbnail",
+					directory: "/src/assets/images/projects",
+					publicPath: "/src/assets/images/projects",
 					validation: { isRequired: true },
 				}),
 				technologies: fields.array(

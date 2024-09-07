@@ -1,6 +1,6 @@
 {
 	"subtitle": "Generates a torn paper effect for CSS clip-paths.",
-	"thumbnailImageFileName": "thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/Torn Paper Generator/thumbnail.png",
 	"technologies": ["reactjs", "tailwind", "daisy ui"],
 	"viewLink": {
 		"discriminant": true,
