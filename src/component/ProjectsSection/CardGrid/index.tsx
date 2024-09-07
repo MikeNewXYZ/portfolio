@@ -19,11 +19,11 @@ function CardGrid({ projects }: Props) {
 						{/* HEADING TEXT */}
 						<div className="flex flex-1 flex-col p-2">
 							{/* HEADING TITLE */}
-							<h2 className="mt-0.5 text-lg leading-none">{id}</h2>
-							<p className="text-sm">{data.subtitle}</p>
+							<h2 className="mt-0.5 text-lg leading-tight">{id}</h2>
+							<p className="text-pretty text-sm leading-tight">{data.subtitle}</p>
 
 							{/* HEADING TECHNOLOGY TAGS */}
-							<ul className="mt-1 flex flex-wrap gap-x-2 gap-y-0.5 text-xs uppercase opacity-70">
+							<ul className="mt-1.5 flex flex-wrap gap-x-2 gap-y-0.5 text-xs uppercase opacity-70">
 								{data.technologies.map((technology, index) => (
 									<li key={index}>{technology}</li>
 								))}
