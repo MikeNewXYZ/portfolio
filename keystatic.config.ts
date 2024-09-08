@@ -1,10 +1,12 @@
 import { config, fields, collection } from "@keystatic/core";
 
 export default config({
+	ui: {
+		brand: { name: "MikeNewXYZ" },
+	},
 	storage: {
 		kind: "local",
 	},
-
 	collections: {
 		projects: collection({
 			label: "Projects",
@@ -27,31 +29,36 @@ export default config({
 						itemLabel: (props) => props.value,
 					},
 				),
-				viewLink: fields.conditional(
-					fields.checkbox({
-						label: "Enable View Link",
-						defaultValue: true,
-					}),
+				links: fields.object(
 					{
-						false: fields.empty(),
-						true: fields.object({
-							label: fields.text({ label: "Label", validation: { isRequired: true } }),
-							url: fields.url({ label: "Url", validation: { isRequired: true } }),
-						}),
+						view: fields.conditional(
+							fields.checkbox({
+								label: "Enable View Link",
+								defaultValue: true,
+							}),
+							{
+								false: fields.empty(),
+								true: fields.object({
+									label: fields.text({ label: "Label", validation: { isRequired: true } }),
+									url: fields.url({ label: "Url", validation: { isRequired: true } }),
+								}),
+							},
+						),
+						repo: fields.conditional(
+							fields.checkbox({
+								label: "Enable Repo Link",
+								defaultValue: true,
+							}),
+							{
+								false: fields.empty(),
+								true: fields.object({
+									label: fields.text({ label: "Label", validation: { isRequired: true } }),
+									url: fields.url({ label: "Url", validation: { isRequired: true } }),
+								}),
+							},
+						),
 					},
-				),
-				repoLink: fields.conditional(
-					fields.checkbox({
-						label: "Enable View Link",
-						defaultValue: true,
-					}),
-					{
-						false: fields.empty(),
-						true: fields.object({
-							label: fields.text({ label: "Label", validation: { isRequired: true } }),
-							url: fields.url({ label: "Url", validation: { isRequired: true } }),
-						}),
-					},
+					{ label: "Links" },
 				),
 			},
 		}),

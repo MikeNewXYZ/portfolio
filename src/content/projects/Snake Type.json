@@ -1,19 +1,21 @@
 {
 	"subtitle": "Snake but its a typing game; made with TypeScript and the Canvas API.",
-	"thumbnailPath": "/src/assets/images/projects/Snake Type/thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/Snake Type/thumbnailPath.png",
 	"technologies": ["typescript", "canvas api"],
-	"viewLink": {
-		"discriminant": true,
-		"value": {
-			"label": "Play Game",
-			"url": "https://snake-type.mikenew.xyz/"
-		}
-	},
-	"repoLink": {
-		"discriminant": true,
-		"value": {
-			"label": "View Repo",
-			"url": "https://github.com/MikeNewXYZ/snake-type"
+	"links": {
+		"view": {
+			"discriminant": true,
+			"value": {
+				"label": "Play Game",
+				"url": "https://snake-type.mikenew.xyz/"
+			}
+		},
+		"repo": {
+			"discriminant": true,
+			"value": {
+				"label": "View Repo",
+				"url": "https://github.com/MikeNewXYZ/snake-type"
+			}
 		}
 	}
 }

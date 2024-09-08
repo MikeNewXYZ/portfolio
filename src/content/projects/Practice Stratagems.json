@@ -1,19 +1,21 @@
 {
 	"subtitle": "A game inspired by stratagems in the Helldivers game series.",
-	"thumbnailPath": "/src/assets/images/projects/Practice Stratagems/thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/Practice Stratagems/thumbnailPath.png",
 	"technologies": ["reactjs", "tailwind"],
-	"viewLink": {
-		"discriminant": true,
-		"value": {
-			"label": "Play Game",
-			"url": "https://practice-stratagems.mikenew.xyz/"
-		}
-	},
-	"repoLink": {
-		"discriminant": true,
-		"value": {
-			"label": "View Repo",
-			"url": "https://github.com/MikeNewXYZ/practice-stratagems"
+	"links": {
+		"view": {
+			"discriminant": true,
+			"value": {
+				"label": "Play Game",
+				"url": "https://practice-stratagems.mikenew.xyz/"
+			}
+		},
+		"repo": {
+			"discriminant": true,
+			"value": {
+				"label": "View Repo",
+				"url": "https://github.com/MikeNewXYZ/practice-stratagems"
+			}
 		}
 	}
 }

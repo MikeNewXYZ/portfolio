@@ -1,19 +1,21 @@
 {
 	"subtitle": "A modern-looking Shopify theme.",
-	"thumbnailPath": "/src/assets/images/projects/Baka Town/thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/Baka Town/thumbnailPath.png",
 	"technologies": ["shopify themes", "alpinejs", "animejs", "bootstrap"],
-	"viewLink": {
-		"discriminant": true,
-		"value": {
-			"label": "View Website",
-			"url": "https://baka-town.myshopify.com/"
-		}
-	},
-	"repoLink": {
-		"discriminant": true,
-		"value": {
-			"label": "View Repo",
-			"url": "https://github.com/MikeNewXYZ/baka-town-shopify-theme"
+	"links": {
+		"view": {
+			"discriminant": true,
+			"value": {
+				"label": "View Website",
+				"url": "https://baka-town.myshopify.com/"
+			}
+		},
+		"repo": {
+			"discriminant": true,
+			"value": {
+				"label": "View Repo",
+				"url": "https://github.com/MikeNewXYZ/baka-town-shopify-theme"
+			}
 		}
 	}
 }

@@ -1,15 +1,17 @@
 {
 	"subtitle": "A site for a community chess club.",
-	"thumbnailPath": "/src/assets/images/projects/Cramlington Community Chess Club/thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/Cramlington Community Chess Club/thumbnailPath.png",
 	"technologies": ["nextjs", "tailwind", "daisy ui", "directus cms", "sqlite"],
-	"viewLink": {
-		"discriminant": true,
-		"value": {
-			"label": "View Website",
-			"url": "https://cramlington-community-chess-club.com"
+	"links": {
+		"view": {
+			"discriminant": true,
+			"value": {
+				"label": "View Website",
+				"url": "https://cramlington-community-chess-club.com"
+			}
+		},
+		"repo": {
+			"discriminant": false
 		}
-	},
-	"repoLink": {
-		"discriminant": false
 	}
 }

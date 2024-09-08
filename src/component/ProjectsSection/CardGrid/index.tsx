@@ -33,24 +33,24 @@ function CardGrid({ projects }: Props) {
 						{/* LINKS */}
 						<div className="flex w-full flex-col gap-2 p-2">
 							{/* REPO LINK */}
-							{data.repoLink.discriminant && (
+							{data.links.repo.discriminant && (
 								<a
 									className="button bg-secondary text-center text-xl"
-									href={data.repoLink.value.url}
+									href={data.links.repo.value.url}
 									target="_blank"
 								>
-									{data.repoLink.value.label}
+									{data.links.repo.value.label}
 								</a>
 							)}
 
 							{/* VIEW LINK */}
-							{data.viewLink.discriminant && (
+							{data.links.view.discriminant && (
 								<a
 									className="button bg-secondary text-center text-xl"
-									href={data.viewLink.value.url}
+									href={data.links.view.value.url}
 									target="_blank"
 								>
-									{data.viewLink.value.label}
+									{data.links.view.value.label}
 								</a>
 							)}
 						</div>

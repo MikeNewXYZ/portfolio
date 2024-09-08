@@ -8,23 +8,25 @@ export type Projects = {
 		thumbnailPath: string;
 		thumbnailImageData: GetImageResult;
 		technologies: string[];
-		viewLink:
-			| {
-					discriminant: true;
-					value: {
-						label: string;
-						url: string;
-					};
-			  }
-			| { discriminant: false };
-		repoLink:
-			| {
-					discriminant: true;
-					value: {
-						label: string;
-						url: string;
-					};
-			  }
-			| { discriminant: false };
+		links: {
+			view:
+				| {
+						discriminant: true;
+						value: {
+							label: string;
+							url: string;
+						};
+				  }
+				| { discriminant: false };
+			repo:
+				| {
+						discriminant: true;
+						value: {
+							label: string;
+							url: string;
+						};
+				  }
+				| { discriminant: false };
+		};
 	};
 }[];

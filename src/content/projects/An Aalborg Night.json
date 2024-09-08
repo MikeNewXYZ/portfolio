@@ -1,19 +1,21 @@
 {
 	"subtitle": "A neon styled Shopify theme.",
-	"thumbnailPath": "/src/assets/images/projects/An Aalborg Night/thumbnail.png",
+	"thumbnailPath": "/src/assets/images/projects/An Aalborg Night/thumbnailPath.png",
 	"technologies": ["shopify themes", "tailwind", "daisy ui", "alpinejs", "animejs"],
-	"viewLink": {
-		"discriminant": true,
-		"value": {
-			"label": "View Website",
-			"url": "https://an-aalborg-night.myshopify.com"
-		}
-	},
-	"repoLink": {
-		"discriminant": true,
-		"value": {
-			"label": "View Repo",
-			"url": "https://github.com/MikeNewXYZ/an-aalborg-night-shopify-theme"
+	"links": {
+		"view": {
+			"discriminant": true,
+			"value": {
+				"label": "View Website",
+				"url": "https://an-aalborg-night.myshopify.com"
+			}
+		},
+		"repo": {
+			"discriminant": true,
+			"value": {
+				"label": "View Repo",
+				"url": "https://github.com/MikeNewXYZ/an-aalborg-night-shopify-theme"
+			}
 		}
 	}
 }
