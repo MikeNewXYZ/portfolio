@@ -8,6 +8,7 @@ function MobileNavigation() {
 	const openMenu = () => setIsMenuOpen(true);
 	const closeMenu = () => setIsMenuOpen(false);
 
+	// ANCHOR SHOW/HIDE FLOATING MENU - If user scrolls far enough down show Floating Menu Button.
 	useEffect(() => {
 		determineIsMenuButtonFloating();
 		addEventListener("scroll", determineIsMenuButtonFloating);
@@ -27,7 +28,7 @@ function MobileNavigation() {
 
 	return (
 		<>
-			{/* REGULAR MENU */}
+			{/* ANCHOR REGULAR MENU */}
 			<button
 				className={twMerge(
 					"button p-0 text-2xl sm:hidden",
@@ -39,7 +40,7 @@ function MobileNavigation() {
 				<List />
 			</button>
 
-			{/* FLOATING MENU */}
+			{/* ANCHOR FLOATING MENU */}
 			<button
 				className={twMerge(
 					"button fixed bottom-2 right-2 z-10 bg-secondary p-0 text-4xl transition-all duration-500 sm:hidden",
@@ -53,13 +54,14 @@ function MobileNavigation() {
 				<List weight="light" />
 			</button>
 
-			{/* MENU DRAWER */}
+			{/* ANCHOR MENU DRAWER */}
 			<aside
 				className={twMerge(
 					"fixed inset-0 z-30 h-dvh w-full transition-opacity duration-500",
 					isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0",
 				)}
 			>
+				{/* ANCHOR NAVIGATION MENU */}
 				<nav
 					className={twMerge(
 						"absolute bottom-0 left-0 z-10 w-full border-t-2 border-t-primary bg-secondary text-primary transition-transform duration-500",
@@ -82,6 +84,7 @@ function MobileNavigation() {
 					</ul>
 				</nav>
 
+				{/* ANCHOR OVERLAY - Closes Menu Drawer when clicked. */}
 				<div
 					role="button"
 					title="Close Menu"

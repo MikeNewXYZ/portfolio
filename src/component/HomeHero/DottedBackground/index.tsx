@@ -2,6 +2,7 @@ import { ShootingStar } from "@phosphor-icons/react";
 import { twMerge } from "tailwind-merge";
 import styles from "./styles.module.css";
 
+// ANCHOR CALCULATE ROTATION - Rotate the shooting star so that it points to the bottom left of the screen.
 function calculateRotation() {
 	const DEFAULT_ANGLE = 45;
 	const acute = (Math.atan(window.innerWidth / window.innerHeight) * 180) / Math.PI;
@@ -13,20 +14,23 @@ function DottedBackground() {
 
 	return (
 		<div
-			className={twMerge("absolute inset-0 -z-10 h-dvh w-full overflow-hidden", styles["fade-in"])}
+			className={twMerge(
+				"absolute inset-0 -z-10 h-dvh w-full overflow-hidden",
+				styles["fade-in-animation"],
+			)}
 			style={{ perspective: "1000px" }}
 		>
-			{/* FADE OUT GRADIANT */}
+			{/* ANCHOR FADE OUT OVERLAY */}
 			<div
-				className={twMerge("absolute left-0 top-0 z-30 h-full w-full", styles["fade-out"])}
+				className={twMerge("absolute left-0 top-0 z-30 h-full w-full", styles["fade-out-overlay"])}
 			></div>
 
-			{/* VIGNETTE */}
+			{/* ANCHOR VIGNETTE OVERLAY */}
 			<div
-				className={twMerge("absolute left-0 top-0 z-20 h-full w-full", styles["vignette"])}
+				className={twMerge("absolute left-0 top-0 z-20 h-full w-full", styles["vignette-overlay"])}
 			></div>
 
-			{/* SHOOTING STARS */}
+			{/* ANCHOR SHOOTING STARS */}
 			<div
 				className={twMerge(
 					"absolute left-0 top-0 z-10 h-full w-full text-xl antialiased",
@@ -50,7 +54,7 @@ function DottedBackground() {
 				/>
 			</div>
 
-			{/* DOTTED BACKGROUND */}
+			{/* ANCHOR DOTTED BACKGROUND */}
 			<div className={twMerge("h-full w-full", styles["background"])}></div>
 		</div>
 	);

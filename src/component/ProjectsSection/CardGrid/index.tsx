@@ -8,6 +8,7 @@ type Props = {
 function CardGrid({ projects }: Props) {
 	return (
 		<div className="mt-20 grid w-full grid-cols-1 justify-center gap-8 sm:gap-16 md:grid-cols-2 xl:grid-cols-3">
+			{/* ANCHOR PROJECT CARD */}
 			{projects.map(({ id, data }, index) => (
 				<FloatingCard
 					key={index}
@@ -16,13 +17,11 @@ function CardGrid({ projects }: Props) {
 					onHoverScaleSize={1.03}
 				>
 					<div className="absolute inset-0 z-10 flex h-full w-full flex-col transition-opacity duration-500 md:opacity-0 hover:md:opacity-100">
-						{/* HEADING TEXT */}
+						{/* ANCHOR HEADING */}
 						<div className="flex flex-1 flex-col p-2">
-							{/* HEADING TITLE */}
 							<h2 className="mt-0.5 text-lg leading-tight">{id}</h2>
 							<p className="text-pretty text-sm leading-tight">{data.subtitle}</p>
 
-							{/* HEADING TECHNOLOGY TAGS */}
 							<ul className="mt-1.5 flex flex-wrap gap-x-2 gap-y-0.5 text-xs uppercase opacity-70">
 								{data.technologies.map((technology, index) => (
 									<li key={index}>{technology}</li>
@@ -30,9 +29,8 @@ function CardGrid({ projects }: Props) {
 							</ul>
 						</div>
 
-						{/* LINKS */}
+						{/* ANCHOR LINKS */}
 						<div className="flex w-full flex-col gap-2 p-2">
-							{/* REPO LINK */}
 							{data.links.repo.discriminant && (
 								<a
 									className="button bg-secondary text-center text-xl"
@@ -43,7 +41,6 @@ function CardGrid({ projects }: Props) {
 								</a>
 							)}
 
-							{/* VIEW LINK */}
 							{data.links.view.discriminant && (
 								<a
 									className="button bg-secondary text-center text-xl"
@@ -55,11 +52,11 @@ function CardGrid({ projects }: Props) {
 							)}
 						</div>
 
-						{/* OVERLAY */}
+						{/* ANCHOR OVERLAY */}
 						<div className="absolute inset-0 -z-10 h-full w-full bg-secondary opacity-70"></div>
 					</div>
 
-					{/* THUMBNAIL IMAGE */}
+					{/* ANCHOR THUMBNAIL IMAGE */}
 					<img
 						className="h-full w-full object-cover"
 						src={data.thumbnailImageData.src}

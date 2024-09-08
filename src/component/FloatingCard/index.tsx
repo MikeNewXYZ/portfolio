@@ -8,7 +8,6 @@ type Dimensions = {
 	halfWidth: number;
 	halfHeight: number;
 };
-
 type Props = {
 	outerClassName?: string;
 	innerClassName?: string;
@@ -39,6 +38,7 @@ function FloatingCard({
 		};
 	}, []);
 
+	// ANCHOR UPDATE DIMENSIONS - Get location and size of element and cache the values.
 	function updateDimensions() {
 		const element = innerRef.current;
 		if (!element) return;
@@ -52,6 +52,7 @@ function FloatingCard({
 		};
 	}
 
+	// ANCHOR ANIMATE FLOATING CARD - Animate element; rotate element depending on location of user mouse.
 	function animateFloatingCard(event: React.MouseEvent) {
 		if (isMobile()) return;
 
@@ -75,6 +76,7 @@ function FloatingCard({
 		});
 	}
 
+	// ANCHOR RESET FLOATING CARD - Reset element back to default state.
 	function resetFloatingCard() {
 		const element = innerRef.current;
 		if (!element) return;
