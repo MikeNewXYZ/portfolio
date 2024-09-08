@@ -1,0 +1,80 @@
+.sphere-wrapper-outer {
+	--radius: 0px;
+	--rotation-duration: 0s;
+	--node-size: 0px;
+	--glow-cycle-duration: 0s;
+	--floating-duration: 0s;
+
+	animation: floating var(--floating-duration) ease-in-out infinite alternate;
+}
+.sphere-wrapper-inner {
+	width: calc(var(--radius) * 2);
+	height: calc(var(--radius) * 2);
+}
+.sphere {
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	animation: rotation var(--rotation-duration) linear infinite;
+}
+.sphere-nodes {
+	--glow-delay: 0s;
+	--x: 0px;
+	--y: 0px;
+	--z: 0px;
+
+	top: calc(-1 * (var(--node-size) / 2));
+	left: calc(-1 * (var(--node-size) / 2));
+
+	transform-style: preserve-3d;
+	transform: translate3d(var(--x), var(--y), var(--z));
+}
+.sphere-nodes::before {
+	content: "";
+
+	width: var(--node-size);
+	height: var(--node-size);
+
+	animation:
+		invertRotate var(--rotation-duration) infinite linear 0s,
+		glow var(--glow-cycle-duration) infinite linear var(--glow-delay);
+}
+
+@keyframes rotation {
+	from {
+		transform: rotateX(90deg) rotateZ(360deg);
+	}
+	to {
+		transform: rotateX(90deg) rotateZ(-360deg);
+	}
+}
+@keyframes invertRotate {
+	from {
+		transform: rotateX(90deg) rotateY(-360deg);
+	}
+	to {
+		transform: rotateX(90deg) rotateY(360deg);
+	}
+}
+@keyframes glow {
+	0%,
+	45%,
+	55%,
+	100% {
+		box-shadow: 0 0 0px 0px theme(colors.primary);
+		opacity: 0.5;
+	}
+
+	50% {
+		box-shadow: 0 0 20px 2px theme(colors.primary);
+		opacity: 1;
+	}
+}
+@keyframes floating {
+	from {
+		transform: translateY(0%);
+	}
+	to {
+		transform: translateY(10%);
+	}
+}
