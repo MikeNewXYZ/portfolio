@@ -1,0 +1,80 @@
+<form
+	class="flex flex-col gap-2 p-2 border-2 border-primary max-w-96 w-full mt-14 max-h-full overflow-y-auto"
+>
+	<!-- ANCHOR ACCESS KEY - The key is just an alias for an email address, it's okay to be made public. -->
+	<input type="hidden" name="access_key" value="c0677afb-36f3-4fe0-ab83-1617dc7a26e3" />
+
+	<!-- ANCHOR TITLE -->
+	<h2 class="text-center uppercase text-lg">Contact Form</h2>
+
+	<!-- ANCHOR INPUT FIELDS -->
+	<div class="flex flex-col gap-1">
+		<label for="name">Name</label>
+		<input
+			id="name"
+			class="bg-transparent border-2 border-primary text-primary px-1 py-0.5 focus:outline-none"
+			name="name"
+			type="text"
+			placeholder="Batman"
+			required
+		/>
+	</div>
+	<div class="flex flex-col gap-1">
+		<label for="email">Email</label>
+		<input
+			id="email"
+			class="bg-transparent border-2 border-primary text-primary px-1 py-0.5 focus:outline-none"
+			name="email"
+			type="email"
+			placeholder="batman@example.com"
+			required
+		/>
+	</div>
+	<div class="flex flex-col gap-1">
+		<label for="message">Message</label>
+		<textarea
+			id="message"
+			class="bg-transparent border-2 border-primary text-primary px-1 py-0.5 focus:outline-none h-60"
+			name="message"
+			required></textarea>
+	</div>
+
+	<!-- ANCHOR SUBMIT BUTTON -->
+	<button class="button text-xl py-1" type="submit">Submit Form</button>
+</form>
+
+<!-- ANCHOR SEND FORM SCRIPT -->
+<script>
+	const formElement = document.querySelector("form");
+	formElement?.addEventListener("submit", formSubmit);
+
+	async function formSubmit(event: Event) {
+		event.preventDefault();
+		const formData = new FormData(formElement!);
+		const formDataObject = Object.fromEntries(formData);
+
+		try {
+			const response = await fetch("https://api.web3forms.com/submit", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+				body: JSON.stringify(formDataObject),
+			});
+			if (!response.ok) throw new Error("Failed to post contact form.");
+
+			formElement?.reset();
+			alert("Contact form has been successfully sent!");
+		} catch (error: unknown) {
+			if (error instanceof Error) {
+				console.error(error);
+				alert(error.message);
+				return;
+			}
+
+			console.error(error);
+			alert("Unknown Error");
+		}
+	}
+</script>
