@@ -1,5 +1,7 @@
 ---
 import "@fontsource/space-grotesk";
+import Header from "../../component/Header/index.astro";
+import Footer from "../../component/Footer/index.astro";
 import getSettings from "../../lib/getSettings";
 
 const settings = await getSettings();
@@ -19,7 +21,9 @@ const seoKeywords = settings.seo?.keywords ? settings.seo.keywords.join(", ") : 
 		<title>{seoTitle}</title>
 	</head>
 	<body class="realtive bg-secondary text-primary overflow-x-hidden">
+		<Header />
 		<slot />
+		<Footer />
 	</body>
 </html>
 
