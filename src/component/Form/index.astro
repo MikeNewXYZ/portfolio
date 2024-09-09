@@ -1,8 +1,15 @@
+---
+import getSettings from "../../lib/getSettings";
+
+const settings = await getSettings();
+const accessKey = settings.other.contactFormAccessKey;
+---
+
 <form
 	class="flex flex-col gap-2 p-2 border-2 border-primary max-w-96 w-full mt-14 max-h-full overflow-y-auto"
 >
 	<!-- ANCHOR ACCESS KEY - The key is just an alias for an email address, it's okay to be made public. -->
-	<input type="hidden" name="access_key" value="c0677afb-36f3-4fe0-ab83-1617dc7a26e3" />
+	<input type="hidden" name="access_key" value={accessKey} />
 
 	<!-- ANCHOR TITLE -->
 	<h2 class="text-center uppercase text-lg">Contact Form</h2>
