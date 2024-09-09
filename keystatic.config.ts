@@ -24,6 +24,21 @@ export default config({
 					},
 					{ label: "Default Seo" },
 				),
+				other: fields.object(
+					{
+						contactFormAccessKey: fields.text({
+							label: "Contact Form Access Key",
+							validation: { isRequired: true },
+						}),
+						resumeFile: fields.file({
+							label: "Resume File",
+							directory: "/src/assets/files/settings/",
+							publicPath: "/src/assets/files/settings/",
+							validation: { isRequired: true },
+						}),
+					},
+					{ label: "Other" },
+				),
 			},
 		}),
 	},

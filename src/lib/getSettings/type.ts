@@ -4,4 +4,8 @@ export type Settings = {
 		description: string;
 		keywords?: string[];
 	};
+	other: {
+		contactFormAccessKey: string;
+		resumeFile: string;
+	};
 };
