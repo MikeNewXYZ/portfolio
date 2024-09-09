@@ -6,6 +6,6 @@ export type Settings = {
 	};
 	other: {
 		contactFormAccessKey: string;
-		resumeFile: string;
+		resumeFilePath: string;
 	};
 };

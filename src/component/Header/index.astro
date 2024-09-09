@@ -1,5 +1,9 @@
 ---
 import MobileNavigation from "./MobileNavigation";
+import getSettings from "../../lib/getSettings";
+
+const settings = await getSettings();
+const resumeFilePath = settings.other.resumeFilePath;
 ---
 
 <header class="absolute top-0 left-0 flex justify-between w-full items-center z-20 p-4">
@@ -7,7 +11,7 @@ import MobileNavigation from "./MobileNavigation";
 
 	<!-- ANCHOR DESKTOP NAVIGATION -->
 	<nav class="sm:flex gap-2 hidden">
-		<a href="/resume" class="button px-1 py-0.5">resume</a>
+		<a href={resumeFilePath} class="button px-1 py-0.5">resume</a>
 		<a href="/contact" class="button px-1 py-0.5">contact</a>
 	</nav>
 

@@ -30,10 +30,10 @@ export default config({
 							label: "Contact Form Access Key",
 							validation: { isRequired: true },
 						}),
-						resumeFile: fields.file({
+						resumeFilePath: fields.file({
 							label: "Resume File",
-							directory: "/src/assets/files/settings/",
-							publicPath: "/src/assets/files/settings/",
+							directory: "/public/files/settings/",
+							publicPath: "/public/files/settings/",
 							validation: { isRequired: true },
 						}),
 					},
