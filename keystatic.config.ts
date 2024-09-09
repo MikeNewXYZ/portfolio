@@ -1,4 +1,4 @@
-import { config, fields, collection } from "@keystatic/core";
+import { config, fields, collection, singleton } from "@keystatic/core";
 
 export default config({
 	ui: {
@@ -6,6 +6,26 @@ export default config({
 	},
 	storage: {
 		kind: "local",
+	},
+	singletons: {
+		settings: singleton({
+			label: "Settings",
+			path: "src/content/settings/",
+			format: { data: "json" },
+			schema: {
+				seo: fields.object(
+					{
+						title: fields.text({ label: "Title", validation: { isRequired: true } }),
+						description: fields.text({ label: "Description", validation: { isRequired: true } }),
+						keywords: fields.array(fields.text({ label: "Keyword" }), {
+							label: "Keywords",
+							itemLabel: (props) => props.value,
+						}),
+					},
+					{ label: "Default Seo" },
+				),
+			},
+		}),
 	},
 	collections: {
 		projects: collection({
