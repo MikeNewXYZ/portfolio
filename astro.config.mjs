@@ -4,10 +4,11 @@ import react from "@astrojs/react";
 import markdoc from "@astrojs/markdoc";
 import keystatic from "@keystatic/astro";
 import cloudflare from "@astrojs/cloudflare";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [tailwind(), react(), markdoc(), keystatic()],
+	integrations: [tailwind(), react(), markdoc(), keystatic(), icon()],
 	output: "hybrid",
 	adapter: cloudflare({ imageService: "compile" }),
 });

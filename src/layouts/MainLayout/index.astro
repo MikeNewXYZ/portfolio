@@ -22,7 +22,7 @@ const metadataKeywords = metadata.keywords ? metadata.keywords.join(", ") : "";
 	</head>
 	<body class="realtive bg-secondary text-primary overflow-x-hidden min-h-dvh flex flex-col">
 		<Header />
-		<main class="relative w-full overflow-x-hidden flex-1">
+		<main class="relative w-full overflow-x-hidden flex-1 flex flex-col">
 			<slot />
 		</main>
 		<Footer />
@@ -32,5 +32,11 @@ const metadataKeywords = metadata.keywords ? metadata.keywords.join(", ") : "";
 <style is:global>
 	body {
 		font-family: "Space Grotesk", system-ui;
+	}
+
+	iconify-icon {
+		display: inline-block;
+		width: 1em;
+		height: 1em;
 	}
 </style>

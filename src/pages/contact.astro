@@ -1,12 +1,42 @@
 ---
+import { Icon } from "astro-icon/components";
 import MainLayout from "../layouts/MainLayout/index.astro";
-import Form from "../component/Form/index.astro";
+import Header from "../component/Header/index.astro";
+import ContactForm from "../component/ContactForm/index.astro";
+import { getContactPage } from "../lib/cms";
+
+const contactPage = await getContactPage();
+const contactDetails = contactPage.contactDetails;
 ---
 
 <MainLayout>
-	<section
-		class="container mx-auto p-2 h-full absolute inset-0 flex flex-col justify-center items-center overflow-x-hidden"
-	>
-		<Form />
-	</section>
+	<Header fakeHeader />
+
+	<div class="mx-auto p-4 max-w-[60rem] w-full flex-1 flex items-center">
+		<div
+			class="w-full h-fit flex flex-col md:flex-row gap-8 md:gap-4 md:mb-14 md:border-2 md:border-dashed md:p-4"
+		>
+			<!-- ANCHOR CONTACT DETAILS -->
+			<div class="md:flex-1 flex flex-col justify-between w-full gap-2">
+				<h1 class="text-4xl font-bold">Contact Me</h1>
+
+				<ul>
+					{
+						contactDetails.map(({ icon, label, url }) => (
+							<li>
+								<a class="flex gap-1 items-center w-fit" href={url} target="_blank">
+									<Icon name={icon} />
+									{label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<div class="md:flex-1 flex justify-center md:justify-end w-full">
+				<ContactForm />
+			</div>
+		</div>
+	</div>
 </MainLayout>
