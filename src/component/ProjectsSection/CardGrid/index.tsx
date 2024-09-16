@@ -1,4 +1,4 @@
-import { type Projects } from "../../../lib/getProjects/type";
+import type { Projects } from "../../../lib/cms/types";
 import FloatingCard from "../../FloatingCard";
 
 type Props = {

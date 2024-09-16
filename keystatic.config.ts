@@ -3,46 +3,67 @@ import { config, fields, collection, singleton } from "@keystatic/core";
 export default config({
 	ui: {
 		brand: { name: "MikeNewXYZ" },
+		navigation: {
+			settings: ["defaultMetadata"],
+			content: ["contactPage", "resumePage"],
+			collections: ["projects"],
+		},
 	},
 	storage: {
 		kind: "local",
 	},
 	singletons: {
-		settings: singleton({
-			label: "Settings",
-			path: "src/content/settings/",
+		// ANCHOR CONTACT PAGE
+		contactPage: singleton({
+			label: "Contact Page",
+			path: "src/content/contactPage/",
 			format: { data: "json" },
 			schema: {
-				seo: fields.object(
-					{
-						title: fields.text({ label: "Title", validation: { isRequired: true } }),
-						description: fields.text({ label: "Description", validation: { isRequired: true } }),
-						keywords: fields.array(fields.text({ label: "Keyword" }), {
-							label: "Keywords",
-							itemLabel: (props) => props.value,
-						}),
-					},
-					{ label: "Default Seo" },
+				contactFormAccessKey: fields.text({
+					label: "Contact Form Access Key",
+					validation: { isRequired: true },
+				}),
+				contactDetails: fields.array(
+					fields.object({
+						icon: fields.text({ label: "Icon", validation: { isRequired: true } }),
+						label: fields.text({ label: "Label", validation: { isRequired: true } }),
+						url: fields.url({ label: "URL", validation: { isRequired: true } }),
+					}),
+					{ label: "Contact Details", itemLabel: (props) => props.fields.label.value },
 				),
-				other: fields.object(
-					{
-						contactFormAccessKey: fields.text({
-							label: "Contact Form Access Key",
-							validation: { isRequired: true },
-						}),
-						resumeFilePath: fields.file({
-							label: "Resume File",
-							directory: "/public/files/settings/",
-							publicPath: "/public/files/settings/",
-							validation: { isRequired: true },
-						}),
-					},
-					{ label: "Other" },
-				),
+			},
+		}),
+		// ANCHOR RESUME PAGE
+		resumePage: singleton({
+			label: "Resume Page",
+			path: "src/content/resumePage/",
+			format: { data: "json" },
+			schema: {
+				resume: fields.file({
+					label: "Resume File",
+					directory: "/public/files/resumePage/",
+					publicPath: "/public/files/resumePage/",
+					validation: { isRequired: true },
+				}),
+			},
+		}),
+		// ANCHOR DEFAULT METADATA
+		defaultMetadata: singleton({
+			label: "Default Metadata",
+			path: "src/content/defaultMetadata/",
+			format: { data: "json" },
+			schema: {
+				title: fields.text({ label: "Title", validation: { isRequired: true } }),
+				description: fields.text({ label: "Description", validation: { isRequired: true } }),
+				keywords: fields.array(fields.text({ label: "Keyword" }), {
+					label: "Keywords",
+					itemLabel: (props) => props.value,
+				}),
 			},
 		}),
 	},
 	collections: {
+		// ANCHOR PROJECTS
 		projects: collection({
 			label: "Projects",
 			slugField: "title",

@@ -1,9 +1,9 @@
 ---
 import MobileNavigation from "./MobileNavigation";
-import getSettings from "../../lib/getSettings";
+import { getResumePage } from "../../lib/cms";
 
-const settings = await getSettings();
-const resumeFilePath = settings.other.resumeFilePath;
+const resumePage = await getResumePage();
+const resumeFilePath = resumePage.resume;
 ---
 
 <header class="absolute top-0 left-0 flex justify-between w-full items-center z-20 p-4">

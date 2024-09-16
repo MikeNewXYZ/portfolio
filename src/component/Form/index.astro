@@ -1,8 +1,8 @@
 ---
-import getSettings from "../../lib/getSettings";
+import { getContactPage } from "../../lib/cms";
 
-const settings = await getSettings();
-const accessKey = settings.other.contactFormAccessKey;
+const contactPage = await getContactPage();
+const accessKey = contactPage.contactFormAccessKey;
 ---
 
 <form
