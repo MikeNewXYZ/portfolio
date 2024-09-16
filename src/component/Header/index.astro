@@ -2,11 +2,17 @@
 import MobileNavigation from "./MobileNavigation";
 import { getResumePage } from "../../lib/cms";
 
+type Props = {
+	fakeHeader?: boolean;
+};
+const { fakeHeader = false } = Astro.props;
+
 const resumePage = await getResumePage();
 const resumeFilePath = resumePage.resume;
 ---
 
-<header class="absolute top-0 left-0 flex justify-between w-full items-center z-20 p-4">
+{fakeHeader ? <div class="w-full h-16"></div> : (
+<header class="absolute top-0 left-0 flex justify-between w-full items-center z-20 p-4 h-16">
 	<a href="/" aria-label="home page">MikeNew.XYZ</a>
 
 	<!-- ANCHOR DESKTOP NAVIGATION -->
@@ -18,3 +24,5 @@ const resumeFilePath = resumePage.resume;
 	<!-- ANCHOR MOBILE NAVIGATION -->
 	<MobileNavigation client:visible />
 </header>
+)}
+
