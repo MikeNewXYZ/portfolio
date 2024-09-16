@@ -12,17 +12,20 @@ const resumeFilePath = resumePage.resume;
 ---
 
 <!-- ANCHOR HEADER -->
-<header class="absolute top-0 left-0 flex justify-between w-full items-center z-20 p-4 h-16">
-	<a href="/" aria-label="home page">MikeNew.XYZ</a>
+<header class="absolute top-0 left-0 w-full items-center z-20 p-4 h-16">
+	<div class="flex justify-between container mx-auto">
+		<!-- ANCHOR HOME PAGE LINK -->
+		<a href="/" aria-label="home page">MikeNew.XYZ</a>
 
-	<!-- ANCHOR DESKTOP NAVIGATION -->
-	<nav class="sm:flex gap-2 hidden">
-		<a href={resumeFilePath} class="button px-1 py-0.5">resume</a>
-		<a href="/contact" class="button px-1 py-0.5">contact</a>
-	</nav>
+		<!-- ANCHOR DESKTOP NAVIGATION -->
+		<nav class="sm:flex gap-2 hidden">
+			<a href={resumeFilePath} class="button px-1 py-0.5">resume</a>
+			<a href="/contact" class="button px-1 py-0.5">contact</a>
+		</nav>
 
-	<!-- ANCHOR MOBILE NAVIGATION -->
-	<MobileNavigation client:visible />
+		<!-- ANCHOR MOBILE NAVIGATION -->
+		<MobileNavigation client:visible />
+	</div>
 </header>
 
 <!-- ANCHOR FAKE HEADER -->
