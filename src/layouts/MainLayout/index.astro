@@ -2,14 +2,21 @@
 import "@fontsource/space-grotesk";
 import Header from "../../component/Header/index.astro";
 import Footer from "../../component/Footer/index.astro";
+import Sphere from "../../component/Sphere";
 import { getDefaultMetadata } from "../../lib/cms";
 
 type Props = {
 	disableHeader?: boolean;
 	disableFooter?: boolean;
+	disableSphere?: boolean;
 	fakeHeader?: boolean;
 };
-const { disableHeader = false, disableFooter = false, fakeHeader = false } = Astro.props;
+const {
+	disableHeader = false,
+	disableFooter = false,
+	fakeHeader = false,
+	disableSphere = false,
+} = Astro.props;
 
 const metadata = await getDefaultMetadata();
 const metadataTitle = metadata.title;
@@ -28,11 +35,19 @@ const metadataKeywords = metadata.keywords ? metadata.keywords.join(", ") : "";
 		<title>{metadataTitle}</title>
 	</head>
 	<body class="realtive bg-secondary text-primary overflow-x-hidden min-h-dvh flex flex-col">
+		<!-- ANCHOR HEADER -->
 		{disableHeader ? "" : <Header fakeHeader={fakeHeader} />}
+
+		<!-- ANCHOR MAIN CONTENT -->
 		<main class="relative w-full overflow-x-hidden flex-1 flex flex-col">
 			<slot />
 		</main>
-		{disableFooter ? "" : <Footer />}
+
+		<!-- ANCHOR FOOTER & SPHERE -->
+		<div class="w-full relative">
+			{disableFooter ? "" : <Footer />}
+			{disableSphere ? "" : <Sphere client:visible />}
+		</div>
 	</body>
 </html>
 

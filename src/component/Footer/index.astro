@@ -1,37 +1,31 @@
 ---
 import { GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
-import Sphere from "./Sphere";
 ---
 
-<div class="w-full relative">
-	<footer
-		class="mx-auto container px-2 py-4 flex flex-col sm:flex-row justify-between items-center gap-2"
-	>
-		<!-- ANCHOR HOME PAGE LINK -->
-		<a href="/" aria-label="home page">MikeNew.XYZ</a>
+<footer
+	class="mx-auto container px-2 py-4 flex flex-col sm:flex-row justify-between items-center gap-2"
+>
+	<!-- ANCHOR HOME PAGE LINK -->
+	<a href="/" aria-label="home page">MikeNew.XYZ</a>
 
-		<!-- ANCHOR SOCIAL LINKS -->
-		<nav class="flex gap-2">
-			<a
-				href="https://github.com/MikeNewXYZ"
-				class="button px-1 py-0.5 flex gap-1 items-center"
-				target="_blank"
-			>
-				<GithubLogo />
-				<span>github</span>
-			</a>
+	<!-- ANCHOR SOCIAL LINKS -->
+	<nav class="flex gap-2">
+		<a
+			href="https://github.com/MikeNewXYZ"
+			class="button px-1 py-0.5 flex gap-1 items-center"
+			target="_blank"
+		>
+			<GithubLogo />
+			<span>github</span>
+		</a>
 
-			<a
-				href="https://www.linkedin.com/in/mikenewxyz/"
-				class="button px-1 py-0.5 flex gap-1 items-center"
-				target="_blank"
-			>
-				<LinkedinLogo />
-				<span>linkedin</span>
-			</a>
-		</nav>
-	</footer>
-
-	<!-- ANCHOR SPHERE -->
-	<Sphere client:visible />
-</div>
+		<a
+			href="https://www.linkedin.com/in/mikenewxyz/"
+			class="button px-1 py-0.5 flex gap-1 items-center"
+			target="_blank"
+		>
+			<LinkedinLogo />
+			<span>linkedin</span>
+		</a>
+	</nav>
+</footer>
