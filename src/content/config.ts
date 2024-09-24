@@ -94,16 +94,22 @@ const projectsCollection = defineCollection({
 		subtitle: z.string(),
 		thumbnail: z.string(),
 		technologies: z.array(z.string()),
-		links: z.object({
-			view: z.object({
-				label: z.string(),
-				url: z.string().url(),
-			}),
-			repo: z.object({
-				label: z.string(),
-				url: z.string().url(),
-			}),
-		}),
+		links: z
+			.object({
+				view: z
+					.object({
+						label: z.string(),
+						url: z.string().url(),
+					})
+					.optional(),
+				repo: z
+					.object({
+						label: z.string(),
+						url: z.string().url(),
+					})
+					.optional(),
+			})
+			.optional(),
 	}),
 });
 
