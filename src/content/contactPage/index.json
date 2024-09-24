@@ -1,0 +1,30 @@
+{
+	"contactFormAccessKey": "c0677afb-36f3-4fe0-ab83-1617dc7a26e3",
+	"contactDetails": [
+		{
+			"icon": "ph:github-logo",
+			"label": "Github",
+			"url": "https://github.com/MikeNewXYZ"
+		},
+		{
+			"icon": "ph:linkedin-logo",
+			"label": "LinkedIn",
+			"url": "https://www.linkedin.com/in/mikenewxyz/"
+		},
+		{
+			"icon": "ph:phone",
+			"label": "07723452081",
+			"url": "tel:07723452081"
+		},
+		{
+			"icon": "ph:mailbox",
+			"label": "hello@mikenew.xyz",
+			"url": "mailto:hello@mikenew.xyz"
+		},
+		{
+			"icon": "ph:house-line",
+			"label": "Mitcham Surrey CR4",
+			"url": "https://maps.app.goo.gl/SBUyCdzohm5CQ6au6"
+		}
+	]
+}

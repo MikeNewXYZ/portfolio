@@ -63,9 +63,25 @@ const homePage = defineCollection({
 	}),
 });
 
+// ANCHOR CONTACT PAGE
+const contactPage = defineCollection({
+	type: "data",
+	schema: z.object({
+		contactFormAccessKey: z.string(),
+		contactDetails: z.array(
+			z.object({
+				icon: z.string(),
+				label: z.string(),
+				url: z.string().url(),
+			}),
+		),
+	}),
+});
+
 export const collections = {
 	defaultMetadata: defaultMetadata,
 	header: header,
 	footer: footer,
 	homePage: homePage,
+	contactPage: contactPage,
 };
