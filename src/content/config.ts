@@ -27,7 +27,26 @@ const header = defineCollection({
 	}),
 });
 
+// ANCHOR Footer
+const footer = defineCollection({
+	type: "data",
+	schema: z.object({
+		brand: z.object({
+			label: z.string(),
+			url: z.string().url(),
+		}),
+		socialLinks: z.array(
+			z.object({
+				icon: z.string(),
+				alt: z.string(),
+				url: z.string().url(),
+			}),
+		),
+	}),
+});
+
 export const collections = {
 	defaultMetadata: defaultMetadata,
 	header: header,
+	footer: footer,
 };
