@@ -86,6 +86,27 @@ const resumePage = defineCollection({
 	}),
 });
 
+// ANCHOR PROJECTS COLLECTION
+const projectsCollection = defineCollection({
+	type: "data",
+	schema: z.object({
+		title: z.string(),
+		subtitle: z.string(),
+		thumbnail: z.string(),
+		technologies: z.array(z.string()),
+		links: z.object({
+			view: z.object({
+				label: z.string(),
+				url: z.string().url(),
+			}),
+			repo: z.object({
+				label: z.string(),
+				url: z.string().url(),
+			}),
+		}),
+	}),
+});
+
 export const collections = {
 	defaultMetadata: defaultMetadata,
 	header: header,
@@ -93,4 +114,5 @@ export const collections = {
 	homePage: homePage,
 	contactPage: contactPage,
 	resumePage: resumePage,
+	projectsCollection: projectsCollection,
 };
