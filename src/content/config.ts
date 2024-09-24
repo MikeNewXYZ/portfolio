@@ -78,10 +78,19 @@ const contactPage = defineCollection({
 	}),
 });
 
+// ANCHOR RESUME PAGE
+const resumePage = defineCollection({
+	type: "data",
+	schema: z.object({
+		resume: z.string(),
+	}),
+});
+
 export const collections = {
 	defaultMetadata: defaultMetadata,
 	header: header,
 	footer: footer,
 	homePage: homePage,
 	contactPage: contactPage,
+	resumePage: resumePage,
 };
