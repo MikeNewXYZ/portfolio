@@ -1,6 +1,17 @@
 import { z, defineCollection } from "astro:content";
 
-const headerSingleton = defineCollection({
+// ANCHOR DEFAULT METADATA
+const defaultMetadata = defineCollection({
+	type: "data",
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		keywords: z.array(z.string()),
+	}),
+});
+
+// ANCHOR HEADER
+const header = defineCollection({
 	type: "data",
 	schema: z.object({
 		brand: z.object({
@@ -17,5 +28,6 @@ const headerSingleton = defineCollection({
 });
 
 export const collections = {
-	headerSingleton: headerSingleton,
+	defaultMetadata: defaultMetadata,
+	header: header,
 };
