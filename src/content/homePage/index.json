@@ -1,0 +1,13 @@
+{
+	"hero": {
+		"heading": {
+			"topText": "hello there",
+			"title": "i'm mike",
+			"subtitle": "Experienced British Web Developer & Hobbyist Game Developer"
+		},
+		"actionLink": {
+			"label": "check out my blog",
+			"url": "/blog"
+		}
+	}
+}

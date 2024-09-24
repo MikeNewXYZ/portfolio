@@ -27,11 +27,11 @@ const header = defineCollection({
 	}),
 });
 
-// ANCHOR Footer
+// ANCHOR FOOTER
 const footer = defineCollection({
 	type: "data",
 	schema: z.object({
-		brand: z.object({
+		brandLink: z.object({
 			label: z.string(),
 			url: z.string().url(),
 		}),
@@ -45,8 +45,27 @@ const footer = defineCollection({
 	}),
 });
 
+// ANCHOR HOME PAGE
+const homePage = defineCollection({
+	type: "data",
+	schema: z.object({
+		hero: z.object({
+			heading: z.object({
+				topText: z.string(),
+				title: z.string(),
+				subtitle: z.string(),
+			}),
+			actionLink: z.object({
+				label: z.string(),
+				url: z.string().url(),
+			}),
+		}),
+	}),
+});
+
 export const collections = {
 	defaultMetadata: defaultMetadata,
 	header: header,
 	footer: footer,
+	homePage: homePage,
 };
