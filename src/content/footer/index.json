@@ -1,17 +1,18 @@
 {
-	"brand": {
+	"$schema": "../../../.astro/collections/footer.schema.json",
+	"brandLink": {
 		"label": "MikeNewXYZ",
 		"url": "/"
 	},
 	"socialLinks": [
 		{
 			"icon": "ph:github-logo",
-			"label": "Github",
+			"alt": "Github",
 			"url": "https://github.com/MikeNewXYZ"
 		},
 		{
 			"icon": "ph:linkedin-logo",
-			"label": "LinkedIn",
+			"alt": "LinkedIn",
 			"url": "https://www.linkedin.com/in/mikenewxyz/"
 		}
 	]

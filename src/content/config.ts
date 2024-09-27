@@ -14,14 +14,14 @@ const defaultMetadata = defineCollection({
 const header = defineCollection({
 	type: "data",
 	schema: z.object({
-		brand: z.object({
+		brandLink: z.object({
 			label: z.string(),
-			url: z.string().url(),
+			url: z.string(),
 		}),
 		navigationMenu: z.array(
 			z.object({
 				label: z.string(),
-				url: z.string().url(),
+				url: z.string(),
 			}),
 		),
 	}),
@@ -33,7 +33,7 @@ const footer = defineCollection({
 	schema: z.object({
 		brandLink: z.object({
 			label: z.string(),
-			url: z.string().url(),
+			url: z.string(),
 		}),
 		socialLinks: z.array(
 			z.object({
@@ -57,7 +57,7 @@ const homePage = defineCollection({
 			}),
 			actionLink: z.object({
 				label: z.string(),
-				url: z.string().url(),
+				url: z.string(),
 			}),
 		}),
 	}),
