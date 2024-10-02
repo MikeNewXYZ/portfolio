@@ -1,5 +1,6 @@
 ---
 import BaseHead from "@src/components/BaseHead.astro";
+import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
@@ -12,7 +13,8 @@ import BaseHead from "@src/components/BaseHead.astro";
 	</head>
 
 	<body>
-		<main class="relative w-full overflow-x-hidden flex-1 flex flex-col">
+		<main class="relative w-full min-h-dvh overflow-x-hidden flex-1 flex flex-col h-[10000px]">
+			<Header />
 			<slot />
 		</main>
 	</body>

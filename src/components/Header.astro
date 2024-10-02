@@ -1,0 +1,97 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+	fakeHeader?: boolean;
+}
+const { fakeHeader = false } = Astro.props;
+
+const headerEntry: CollectionEntry<"header"> = await getEntry("header", "index");
+const { brandLink, navigationMenu } = headerEntry.data;
+---
+
+<!-- ANCHOR Header -->
+<header
+	class="absolute top-0 left-0 w-full items-center z-20 p-4 h-16"
+	x-data="{isMobileMenuOpen: false, isMenuButtonFloating: false}"
+>
+	<div class="flex justify-between container mx-auto">
+		<!-- ANCHOR Brand Link -->
+		<a href={brandLink.url} aria-label="home page">{brandLink.label}</a>
+
+		<!-- ANCHOR Desktop Navigation Menu -->
+		<nav class="sm:flex gap-2 hidden">
+			{
+				navigationMenu.map(({ url, label }) => (
+					<a href={url} class="button px-1 py-0.5 flex items-center">
+						{label}
+					</a>
+				))
+			}
+		</nav>
+
+		<!-- ANCHOR Mobile Menu Button Static -->
+		<button
+			class="button px-1 py-0.5 flex sm:hidden items-center gap-1"
+			x-intersect:enter="isMenuButtonFloating = false"
+			x-intersect:leave="isMenuButtonFloating = true"
+			@click="isMobileMenuOpen = true"
+		>
+			<Icon class="text-lg" name="ph:list" />
+			<span class="text-primary">menu</span>
+		</button>
+
+		<!-- ANCHOR Mobile Menu Button Floating -->
+		<button
+			class="button px-1 py-0.5 flex sm:hidden items-center gap-1 fixed bottom-2 right-2 z-10 shadow-md"
+			x-cloak
+			x-show="isMenuButtonFloating"
+			@click="isMobileMenuOpen = true"
+		>
+			<Icon class="text-lg" name="ph:list" />
+			<span class="text-primary">menu</span>
+		</button>
+
+		<!-- ANCHOR Mobile Menu Drawer -->
+		<aside class="fixed inset-0 z-30 h-dvh w-full" x-cloak x-show="isMobileMenuOpen">
+			<!-- ANCHOR Drawer Navigation -->
+			<nav
+				class="absolute bottom-0 left-0 z-10 w-full border-t-2 border-t-primary bg-secondary text-primary transition-transform duration-500"
+				x-cloak
+				x-show="isMobileMenuOpen"
+				x-transition:enter-start="translate-y-full"
+				x-transition:enter-end="translate-y-0"
+				x-transition:leave-start="translate-y-0"
+				x-transition:leave-end="translate-y-full"
+			>
+				<ul class="flex flex-col text-lg uppercase">
+					{
+						navigationMenu.map(({ url, label }) => (
+							<li>
+								<a href={url} class="flex w-full items-center gap-1 p-2">
+									<Icon class="text-lg" name="ph:caret-right" />
+									<span>{label}</span>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<!-- ANCHOR Drawer Overlay -->
+			<div
+				role="button"
+				title="close menu"
+				class="absolute z-0 h-full w-full cursor-pointer bg-secondary transition-opacity duration-500"
+				:class="isMobileMenuOpen ? 'opacity-70' : 'opacity-0'"
+				@click="isMobileMenuOpen = false"
+			>
+			</div>
+		</aside>
+	</div>
+</header>
+
+<!-- ANCHOR Fake Header -->
+{fakeHeader && <div class="w-full h-16" />}
