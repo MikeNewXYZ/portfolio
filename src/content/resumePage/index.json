@@ -1,4 +1,4 @@
 {
 	"$schema": "../../../.astro/collections/resumePage.schema.json",
-	"resume": "/public/assets/content/resumePage/resume.pdf"
+	"resume": "/assets/content/resumePage/resume.pdf"
 }
