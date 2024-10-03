@@ -1,0 +1,27 @@
+---
+import BaseHead from "@src/components/BaseHead.astro";
+import Header from "@src/components/Header.astro";
+import Footer from "@src/components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="MikeNewXYZ - Portfolio"
+			description="Full-Stack Web Developer | ReactJS, NextJS, TypeScript and Shopify Themes."
+		/>
+	</head>
+
+	<body class="min-h-dvh w-full overflow-x-hidden flex-1 flex flex-col">
+		<Header fakeHeader />
+
+		<main
+			class="container mx-auto px-4 md:py-4 overflow-x-hidden flex-1 flex md:justify-center md:items-center md:pb-10"
+		>
+			<slot />
+		</main>
+
+		<Footer />
+	</body>
+</html>

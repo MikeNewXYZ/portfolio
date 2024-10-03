@@ -1,0 +1,81 @@
+---
+import { actions, isInputError } from "astro:actions";
+import { Icon } from "astro-icon/components";
+
+const formResult = Astro.getActionResult(actions.postContactForm);
+const formInputErrors = isInputError(formResult?.error) ? formResult.error.fields : {};
+---
+
+<form
+	method="post"
+	action={actions.postContactForm}
+	class="flex flex-col gap-2 p-2 border-2 border-primary w-full md:max-w-96 max-h-full overflow-y-auto flex-1"
+>
+	<!-- ANCHOR Heading -->
+	<div class="uppercase mb-1">
+		<h2 class="text-xl">Contact Form</h2>
+		{
+			formResult && !formResult.error && (
+				<div class="flex items-center gap-1 text-base">
+					<Icon name="ph:star-fill" class="mb-0.5 animate-pulse" />
+					<p>form sent successfully!!!</p>
+				</div>
+			)
+		}
+	</div>
+
+	<!-- ANCHOR Input Fields -->
+	<!-- ANCHOR Name Field -->
+	<div class="flex flex-col gap-1">
+		<label for="name">Name</label>
+		<input
+			id="name"
+			class="bg-transparent border-2 border-primary text-primary px-1 py-0.5 focus:outline-none"
+			name="name"
+			type="text"
+			placeholder="Batman"
+			required
+		/>
+		{
+			formInputErrors.name && (
+				<p class="font-bold animate-pulse">Error: {formInputErrors.name.join(",")}</p>
+			)
+		}
+	</div>
+
+	<!-- ANCHOR Email Field -->
+	<div class="flex flex-col gap-1">
+		<label for="email">Email</label>
+		<input
+			id="email"
+			class="bg-transparent border-2 border-primary text-primary px-1 py-0.5 focus:outline-none"
+			name="email"
+			type="email"
+			placeholder="batman@example.com"
+			required
+		/>
+		{
+			formInputErrors.email && (
+				<p class="font-bold animate-pulse">Error: {formInputErrors.email.join(",")}</p>
+			)
+		}
+	</div>
+
+	<!-- ANCHOR Message Field -->
+	<div class="flex flex-col gap-1 flex-1">
+		<label for="message">Message</label>
+		<textarea
+			id="message"
+			class="bg-transparent border-2 border-primary text-primary px-1 py-0.5 focus:outline-none h-full min-h-60"
+			name="message"
+			required></textarea>
+		{
+			formInputErrors.message && (
+				<p class="font-bold animate-pulse">Error: {formInputErrors.message.join(",")}</p>
+			)
+		}
+	</div>
+
+	<!-- ANCHOR Submit Button -->
+	<button id="submitButton" class="button text-xl py-1" type="submit">Submit Form</button>
+</form>
