@@ -2,6 +2,7 @@
 import BaseHead from "@src/components/BaseHead.astro";
 import Header from "@src/components/Header.astro";
 import Footer from "@src/components/Footer.astro";
+import Sphere from "@src/components/Sphere.astro";
 ---
 
 <!doctype html>
@@ -13,7 +14,7 @@ import Footer from "@src/components/Footer.astro";
 		/>
 	</head>
 
-	<body class="min-h-dvh w-full overflow-x-hidden flex-1 flex flex-col">
+	<body class="relative min-h-dvh w-full overflow-x-hidden flex-1 flex flex-col">
 		<Header fakeHeader />
 
 		<main
@@ -22,6 +23,7 @@ import Footer from "@src/components/Footer.astro";
 			<slot />
 		</main>
 
+		<Sphere />
 		<Footer />
 	</body>
 </html>

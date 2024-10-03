@@ -1,0 +1,135 @@
+---
+import generateSphereNodes from "@src/lib/generateSphereNodes";
+
+interface Props {
+	nodeCount?: number;
+	nodeSize?: number;
+	radius?: number;
+	rotationDuration?: number;
+	glowCycleDuration?: number;
+	floatingDuration?: number;
+}
+const {
+	nodeCount = 200,
+	nodeSize = 5,
+	radius = 1000,
+	rotationDuration = 100,
+	glowCycleDuration = 10,
+	floatingDuration = 20,
+} = Astro.props;
+
+const sphereNodes = generateSphereNodes(nodeCount, radius, glowCycleDuration);
+---
+
+<div class="absolute bottom-0 left-0 -z-10 h-[70rem] w-full overflow-hidden">
+	<div
+		id="sphere-outer-wrapper"
+		class="absolute bottom-0 left-1/2"
+		style={`
+      --radius: ${radius}px;
+			--rotation-duration: ${rotationDuration}s;
+			--node-size: ${nodeSize}px;
+			--glow-cycle-duration: ${glowCycleDuration}s;
+			--floating-duration: ${floatingDuration}s;
+    `}
+	>
+		<div id="sphere-inner-wrapper" class="-translate-x-1/2 translate-y-[80%]">
+			<div id="sphere" class="w-full h-full">
+				{
+					sphereNodes.map(({ glowDelay, x, y, z }) => (
+						<div
+							id="sphere-node"
+							class="absolute before:block before:bg-primary"
+							style={`--glow-delay: ${glowDelay}; --x: ${x}; --y: ${y}; --z: ${z}`}
+						/>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	#sphere-outer-wrapper {
+		--radius: 0px;
+		--rotation-duration: 0s;
+		--node-size: 0px;
+		--glow-cycle-duration: 0s;
+		--floating-duration: 0s;
+
+		animation: floating var(--floating-duration) ease-in-out infinite alternate;
+	}
+
+	#sphere-inner-wrapper {
+		width: calc(var(--radius) * 2);
+		height: calc(var(--radius) * 2);
+	}
+
+	#sphere {
+		transform-style: preserve-3d;
+		animation: rotation var(--rotation-duration) linear infinite;
+	}
+
+	#sphere-node {
+		--glow-delay: 0s;
+		--x: 0px;
+		--y: 0px;
+		--z: 0px;
+
+		top: calc(-1 * (var(--node-size) / 2));
+		left: calc(-1 * (var(--node-size) / 2));
+		transform-style: preserve-3d;
+		transform: translate3d(var(--x), var(--y), var(--z));
+	}
+
+	#sphere-node::before {
+		content: "";
+		width: var(--node-size);
+		height: var(--node-size);
+		animation:
+			invertRotate var(--rotation-duration) infinite linear 0s,
+			glow var(--glow-cycle-duration) infinite linear var(--glow-delay);
+	}
+
+	@keyframes rotation {
+		from {
+			transform: rotateX(90deg) rotateZ(360deg);
+		}
+		to {
+			transform: rotateX(90deg) rotateZ(-360deg);
+		}
+	}
+
+	@keyframes invertRotate {
+		from {
+			transform: rotateX(90deg) rotateY(-360deg);
+		}
+		to {
+			transform: rotateX(90deg) rotateY(360deg);
+		}
+	}
+
+	@keyframes glow {
+		0%,
+		45%,
+		55%,
+		100% {
+			box-shadow: 0 0 0px 0px theme(colors.primary);
+			opacity: 0.5;
+		}
+
+		50% {
+			box-shadow: 0 0 20px 2px theme(colors.primary);
+			opacity: 1;
+		}
+	}
+
+	@keyframes floating {
+		from {
+			transform: translateY(0%);
+		}
+		to {
+			transform: translateY(10%);
+		}
+	}
+</style>
