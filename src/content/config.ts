@@ -1,15 +1,5 @@
 import { z, defineCollection } from "astro:content";
 
-// ANCHOR DEFAULT METADATA
-const defaultMetadata = defineCollection({
-	type: "data",
-	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		keywords: z.array(z.string()),
-	}),
-});
-
 // ANCHOR HEADER
 const header = defineCollection({
 	type: "data",
@@ -31,10 +21,6 @@ const header = defineCollection({
 const footer = defineCollection({
 	type: "data",
 	schema: z.object({
-		brandLink: z.object({
-			label: z.string(),
-			url: z.string(),
-		}),
 		socialLinks: z.array(
 			z.object({
 				icon: z.string(),
@@ -114,7 +100,6 @@ const projectsCollection = defineCollection({
 });
 
 export const collections = {
-	defaultMetadata: defaultMetadata,
 	header: header,
 	footer: footer,
 	homePage: homePage,
