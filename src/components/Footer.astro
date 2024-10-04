@@ -26,7 +26,13 @@ const { socialLinks } = footerEntry.data;
 			{
 				socialLinks.map(({ url, icon, alt }) => (
 					<li class="h-full aspect-square">
-						<a href={url} class="text-xl p-0.5 button border-0" target="_blank" title={alt}>
+						<a
+							href={url}
+							class="text-xl p-0.5 button border-0"
+							target="_blank"
+							title={alt}
+							aria-label={alt}
+						>
 							<Icon name={icon} />
 						</a>
 					</li>
