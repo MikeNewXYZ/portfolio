@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+import FloatingCard from "@src/components/FloatingCard.astro";
+
+const homePageEntry: CollectionEntry<"homePage"> = await getEntry("homePage", "index");
+const { hero } = homePageEntry.data;
+---
+
+<section
+	class="relative container mx-auto h-dvh flex justify-center items-center p-2 landscape:pb-2 md:landscape:pb-10"
+	x-data
+>
+	<!-- ANCHOR Heading -->
+	<FloatingCard innerClasses="text-center">
+		<h2 class="text-3xl font-black uppercase sm:text-4xl">{hero.heading.topText}</h2>
+		<h1 class="uppercase text-6xl font-black sm:text-8xl">{hero.heading.title}</h1>
+		<p class="mx-auto mt-1 max-w-80 text-balance text-sm normal-case sm:text-base">
+			{hero.heading.subtitle}
+		</p>
+		<a
+			href={hero.actionLink.url}
+			class="button inline-block text-base px-1.5 py-0.5 mt-4 text-center"
+		>
+			{hero.actionLink.label}
+		</a>
+	</FloatingCard>
+
+	<!-- ANCHOR View Projects Button -->
+	<div class="absolute bottom-5 flex flex-col justify-center items-center gap-2 animate-pulse">
+		<div class="text-center text-xs uppercase">view projects</div>
+
+		<button
+			class="text-5xl hover:scale-95 transition-transform duration-500 ease-in-out"
+			title="View Projects"
+			@click="document.getElementById('projects-section').scrollIntoView({behavior: 'smooth'})"
+		>
+			<Icon name="ph:caret-circle-down-fill" />
+		</button>
+	</div>
+</section>
