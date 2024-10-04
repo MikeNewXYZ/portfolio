@@ -1,0 +1,111 @@
+---
+interface Props {
+	outerClasses?: string;
+	innerClasses?: string;
+	multiplier?: number;
+	perspective?: string;
+	transitionDuration?: string;
+	hoverScale?: string;
+}
+const {
+	outerClasses = "",
+	innerClasses = "",
+	multiplier = 10,
+	perspective = "1000px",
+	transitionDuration = "0.2s",
+	hoverScale = "1.05",
+	...rest
+} = Astro.props;
+---
+
+<div
+	id="outer"
+	class:list={[outerClasses]}
+	data-multiplier={multiplier}
+	data-perspective={perspective}
+	data-transition-duration={transitionDuration}
+	data-hover-scale={hoverScale}
+	{...rest}
+>
+	<div id="inner" class:list={[innerClasses]}>
+		<slot />
+	</div>
+</div>
+
+<script>
+	type Dimensions = {
+		top: number;
+		left: number;
+		halfWidth: number;
+		halfHeight: number;
+	};
+
+	const outerElement = document.getElementById("outer")!;
+	const innerElement = document.getElementById("inner")!;
+
+	const multiplier = parseInt(outerElement.dataset.multiplier!);
+	const perspective = outerElement.dataset.perspective!;
+	const transitionDuration = outerElement.dataset.transitionDuration!;
+	const hoverScale = outerElement.dataset.hoverScale!;
+	let dimensions: Dimensions = { top: 0, left: 0, halfWidth: 0, halfHeight: 0 };
+
+	updateDimensions();
+	Object.assign(outerElement.style, {
+		display: "block",
+		perspective: perspective,
+		transformStyle: "preserve-3d",
+	});
+	Object.assign(innerElement.style, {
+		transition: `transform ${transitionDuration}`,
+	});
+
+	innerElement.addEventListener("mousemove", animate);
+	innerElement.addEventListener("mouseleave", reset);
+	window.addEventListener("resize", updateDimensions);
+	window.addEventListener("scroll", updateDimensions);
+
+	function updateDimensions() {
+		const rect = innerElement.getBoundingClientRect();
+		dimensions = {
+			top: rect.top,
+			left: rect.left,
+			halfWidth: rect.width / 2,
+			halfHeight: rect.height / 2,
+		};
+	}
+
+	function animate(event: MouseEvent) {
+		requestAnimationFrame(() => {
+			const { top, left, halfHeight, halfWidth } = dimensions;
+			const mouseY = event.clientY - top;
+			const mouseX = event.clientX - left;
+			const rotateY = -((mouseX - halfWidth) / halfWidth);
+			const rotateX = (mouseY - halfHeight) / halfHeight;
+
+			innerElement.style.transform = `
+	          rotateX(${rotateX * multiplier}deg)
+	          rotateY(${rotateY * multiplier}deg)
+	          scale(${hoverScale})
+	        `;
+			Object.assign(innerElement.style, {
+				transform: `
+	          rotateX(${rotateX * multiplier}deg)
+	          rotateY(${rotateY * multiplier}deg)
+	          scale(${hoverScale})
+	        `,
+			});
+		});
+	}
+
+	function reset() {
+		requestAnimationFrame(() => {
+			Object.assign(innerElement.style, {
+				transform: `
+	          rotateX(0deg)
+	          rotateY(0deg)
+	          scale(1)
+	        `,
+			});
+		});
+	}
+</script>
