@@ -57,7 +57,7 @@ const sphereNodes = generateSphereNodes(nodeCount, radius, glowCycleDuration);
 		--glow-cycle-duration: 0s;
 		--floating-duration: 0s;
 
-		animation: floating var(--floating-duration) ease-in-out infinite alternate;
+		animation: sphere-floating var(--floating-duration) ease-in-out infinite alternate;
 	}
 
 	#sphere-inner-wrapper {
@@ -67,7 +67,7 @@ const sphereNodes = generateSphereNodes(nodeCount, radius, glowCycleDuration);
 
 	#sphere {
 		transform-style: preserve-3d;
-		animation: rotation var(--rotation-duration) linear infinite;
+		animation: sphere-rotation var(--rotation-duration) linear infinite;
 	}
 
 	#sphere-node {
@@ -87,11 +87,11 @@ const sphereNodes = generateSphereNodes(nodeCount, radius, glowCycleDuration);
 		width: var(--node-size);
 		height: var(--node-size);
 		animation:
-			invertRotate var(--rotation-duration) infinite linear 0s,
-			glow var(--glow-cycle-duration) infinite linear var(--glow-delay);
+			sphere-invertRotate var(--rotation-duration) infinite linear 0s,
+			sphere-glow var(--glow-cycle-duration) infinite linear var(--glow-delay);
 	}
 
-	@keyframes rotation {
+	@keyframes sphere-rotation {
 		from {
 			transform: rotateX(90deg) rotateZ(360deg);
 		}
@@ -100,7 +100,7 @@ const sphereNodes = generateSphereNodes(nodeCount, radius, glowCycleDuration);
 		}
 	}
 
-	@keyframes invertRotate {
+	@keyframes sphere-invertRotate {
 		from {
 			transform: rotateX(90deg) rotateY(-360deg);
 		}
@@ -109,7 +109,7 @@ const sphereNodes = generateSphereNodes(nodeCount, radius, glowCycleDuration);
 		}
 	}
 
-	@keyframes glow {
+	@keyframes sphere-glow {
 		0%,
 		45%,
 		55%,
@@ -117,14 +117,13 @@ const sphereNodes = generateSphereNodes(nodeCount, radius, glowCycleDuration);
 			box-shadow: 0 0 0px 0px theme(colors.primary);
 			opacity: 0.5;
 		}
-
 		50% {
 			box-shadow: 0 0 20px 2px theme(colors.primary);
 			opacity: 1;
 		}
 	}
 
-	@keyframes floating {
+	@keyframes sphere-floating {
 		from {
 			transform: translateY(0%);
 		}
