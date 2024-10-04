@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
 import FloatingCard from "@src/components/FloatingCard.astro";
+import DottedBackground from "@src/components/DottedBackground.astro";
 
 const homePageEntry: CollectionEntry<"homePage"> = await getEntry("homePage", "index");
 const { hero } = homePageEntry.data;
@@ -39,4 +40,7 @@ const { hero } = homePageEntry.data;
 			<Icon name="ph:caret-circle-down-fill" />
 		</button>
 	</div>
+
+	<!-- ANCHOR Dotted Background -->
+	<DottedBackground />
 </section>
