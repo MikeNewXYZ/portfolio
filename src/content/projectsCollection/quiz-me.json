@@ -1,0 +1,17 @@
+{
+	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
+	"title": "Quiz Me",
+	"subtitle": "Generates a quiz from a text document using the OpenAI API.",
+	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"technologies": ["openai api", "nextjs", "tailwind"],
+	"links": {
+		"view": {
+			"label": "View Website",
+			"url": "https://quiz-me.mikenew.xyz/"
+		},
+		"repo": {
+			"label": "View Repo",
+			"url": "https://github.com/MikeNewXYZ/quiz-me"
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
+	"title": "Lass Orchid",
+	"subtitle": "A flowery and soft-styled Shopify theme.",
+	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"technologies": ["shopify themes", "alpinejs", "tailwind", "daisyui"],
+	"links": {
+		"view": {
+			"label": "View Website",
+			"url": "https://lass-orchid.myshopify.com/"
+		},
+		"repo": {
+			"label": "View Repo",
+			"url": "https://github.com/MikeNewXYZ/lass-orchid-shopify-theme"
+		}
+	}
+}

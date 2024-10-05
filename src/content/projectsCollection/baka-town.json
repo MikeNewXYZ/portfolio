@@ -1,0 +1,17 @@
+{
+	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
+	"title": "Baka Town",
+	"subtitle": "A modern-looking Shopify theme.",
+	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"technologies": ["shopify themes", "alpinejs", "animejs", "bootstrap"],
+	"links": {
+		"view": {
+			"label": "View Website",
+			"url": "https://baka-town.myshopify.com/"
+		},
+		"repo": {
+			"label": "View Repo",
+			"url": "https://github.com/MikeNewXYZ/baka-town-shopify-theme"
+		}
+	}
+}

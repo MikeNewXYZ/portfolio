@@ -1,0 +1,17 @@
+{
+	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
+	"title": "Torn Paper Generator",
+	"subtitle": "Generates a torn paper effect for CSS clip-paths.",
+	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"technologies": ["reactjs", "tailwind", "daisy ui"],
+	"links": {
+		"view": {
+			"label": "View Website",
+			"url": "https://torn-paper-generator.mikenew.xyz/"
+		},
+		"repo": {
+			"label": "View Repo",
+			"url": "https://github.com/MikeNewXYZ/torn-paper-generator"
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
+	"title": "React Crossfade Carousel",
+	"subtitle": "A ReactJS component for creating a crossfade carousel.",
+	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"technologies": ["create react library", "reactjs", "styled components"],
+	"links": {
+		"view": {
+			"label": "View NPM",
+			"url": "https://www.npmjs.com/package/@notbaldrick/react-crossfade-carousel"
+		},
+		"repo": {
+			"label": "View Repo",
+			"url": "https://github.com/MikeNewXYZ/react-crossfade-carousel"
+		}
+	}
+}

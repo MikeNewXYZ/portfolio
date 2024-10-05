@@ -1,0 +1,17 @@
+{
+	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
+	"title": "Absurd Quiz App",
+	"subtitle": "Generates a funny quiz using the OpenAI API.",
+	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"technologies": ["openai api", "tailwind", "nodejs", "daisy ui"],
+	"links": {
+		"view": {
+			"label": "View Website",
+			"url": "https://absurd-quiz-app.mikenew.xyz"
+		},
+		"repo": {
+			"label": "View Repo",
+			"url": "https://github.com/MikeNewXYZ/absurd-quiz-app"
+		}
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
+	"title": "Cat Apple",
+	"subtitle": "A simplistic Shopify theme.",
+	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"technologies": ["shopify themes", "tailwind", "daisy ui", "animejs", "alpinejs"],
+	"links": {
+		"view": {
+			"label": "View Website",
+			"url": "https://cat-apple.myshopify.com"
+		},
+		"repo": {
+			"label": "View Repo",
+			"url": "https://github.com/MikeNewXYZ/cat-apple-shopify-theme"
+		}
+	}
+}

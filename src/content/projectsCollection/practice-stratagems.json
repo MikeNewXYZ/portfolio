@@ -1,0 +1,17 @@
+{
+	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
+	"title": "Practice Stratagems",
+	"subtitle": "A game inspired by stratagems in the Helldivers game series.",
+	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"technologies": ["reactjs", "tailwind"],
+	"links": {
+		"view": {
+			"label": "Play Game",
+			"url": "https://practice-stratagems.mikenew.xyz/"
+		},
+		"repo": {
+			"label": "View Repo",
+			"url": "https://github.com/MikeNewXYZ/practice-stratagems"
+		}
+	}
+}
