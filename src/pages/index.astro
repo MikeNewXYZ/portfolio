@@ -1,7 +1,10 @@
 ---
 import HomeLayout from "@src/layouts/HomeLayout.astro";
+import HomeHero from "@src/components/HomeHero.astro";
+import ProjectsSection from "../components/ProjectsSection.astro";
 ---
 
 <HomeLayout>
-	<h1>Batman</h1>
+	<HomeHero />
+	<ProjectsSection pageNumber={1} projectsAmount={6} />
 </HomeLayout>

@@ -1,0 +1,9 @@
+---
+export const partial = true;
+import ProjectsSection from "@src/components/ProjectsSection.astro";
+
+const pageNumber = parseInt(Astro.url.searchParams.get("page-number")!);
+const projectsAmount = parseInt(Astro.url.searchParams.get("projects-amount")!);
+---
+
+<ProjectsSection pageNumber={pageNumber + 1} projectsAmount={projectsAmount} />

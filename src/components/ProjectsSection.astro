@@ -1,0 +1,121 @@
+---
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import FloatingCard from "@src/components/FloatingCard.astro";
+
+interface Props {
+	pageNumber: number;
+	projectsAmount: number;
+}
+const { pageNumber, projectsAmount } = Astro.props;
+
+const projectsCollection = await getCollection("projectsCollection");
+const projects = projectsCollection.slice(
+	(pageNumber - 1) * projectsAmount,
+	pageNumber * projectsAmount,
+);
+const isProjectsLeft = pageNumber * projectsAmount < projectsCollection.length;
+---
+
+<section id="projects-section" class="container mx-auto flex flex-col items-center px-2 pb-8">
+	<!-- ANCHOR Section Heading -->
+	<div class="mt-10 w-full max-w-[30rem] text-center sm:mt-12">
+		<h1 class="text-5xl font-bold uppercase sm:text-8xl">projects</h1>
+		<p class="mt-1 text-pretty text-base opacity-90">
+			Here's a bunch of my personal and professional projects.
+		</p>
+	</div>
+
+	<!-- ANCHOR Projects Grid -->
+	<div
+		id="projects-grid"
+		class="mt-20 grid w-full grid-cols-1 justify-center gap-8 sm:gap-16 md:grid-cols-2 xl:grid-cols-3"
+		x-merge="append"
+	>
+		<!-- ANCHOR Project Card -->
+		{
+			projects.map(({ data }) => (
+				<FloatingCard innerClasses="w-full aspect-square border-4 border-primary relative">
+					<div class="absolute inset-0 z-10 flex h-full w-full flex-col">
+						{/* ANCHOR Card Heading */}
+						<div class="flex flex-1 flex-col p-2 [text-shadow:_0_1px_2px_black]">
+							<h2 class="mt-0.5 text-2xl leading-tight">{data.title}</h2>
+							<p class="text-pretty text-lg leading-tight">{data.subtitle}</p>
+							<ul class="mt-1.5 flex flex-wrap gap-2 text-xs font-bold uppercase">
+								{data.technologies.map((technology) => (
+									<li class="bg-primary text-secondary shadow-md px-1 py-0.5 border-2 [text-shadow:none]">
+										{technology}
+									</li>
+								))}
+							</ul>
+						</div>
+
+						{/* ANCHOR Card Links */}
+						<div class="flex w-full flex-col gap-2 p-2 drop-shadow-md">
+							{data?.links?.repo && (
+								<a
+									class="button bg-secondary text-center text-xl"
+									href={data.links.repo.url}
+									target="_blank"
+								>
+									{data.links.repo.label}
+								</a>
+							)}
+							{data?.links?.view && (
+								<a
+									class="button bg-secondary text-center text-xl"
+									href={data.links.view.url}
+									target="_blank"
+								>
+									{data.links.view.label}
+								</a>
+							)}
+						</div>
+
+						{/* ANCHOR Card Overlay */}
+						<div class="absolute inset-0 -z-10 h-full w-full bg-secondary opacity-50" />
+					</div>
+
+					{/* ANCHOR Card Thumbnail Image */}
+					<Image
+						class="h-full w-full object-cover"
+						src={data.thumbnail}
+						alt={data.title}
+						draggable={false}
+					/>
+				</FloatingCard>
+			))
+		}
+	</div>
+
+	<!-- ANCHOR Load More Projects -->
+	<div id="load-more-projects" class="mt-10 sm:mt-14 group" aria-busy="false">
+		{
+			isProjectsLeft ? (
+				<form
+					x-target="projects-grid load-more-projects"
+					method="post"
+					action={`partials/projects?page-number=${pageNumber}&projects-amount=${projectsAmount}`}
+				>
+					<button class="button text-xl border-2 animate-pulse px-2 py-1">
+						<div class="flex group-aria-busy:hidden items-center gap-1">
+							<Icon name="ph:shooting-star-fill" class="text-xl" />
+							<span>load more</span>
+						</div>
+
+						<div class="group-aria-busy:flex hidden items-center gap-1">
+							<Icon name="ph:spiral" class="text-xl animate-spin" />
+							<span>loading</span>
+						</div>
+					</button>
+				</form>
+			) : (
+				<div class="flex items-center gap-2">
+					<Icon name="ph:smiley-sad" class="text-2xl animate-spin" />
+					<p class="uppercase text-lg">no more projects</p>
+				</div>
+			)
+		}
+	</div>
+</section>

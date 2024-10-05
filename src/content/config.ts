@@ -75,28 +75,29 @@ const resumePage = defineCollection({
 // ANCHOR PROJECTS COLLECTION
 const projectsCollection = defineCollection({
 	type: "data",
-	schema: z.object({
-		title: z.string(),
-		subtitle: z.string(),
-		thumbnail: z.string(),
-		technologies: z.array(z.string()),
-		links: z
-			.object({
-				view: z
-					.object({
-						label: z.string(),
-						url: z.string().url(),
-					})
-					.optional(),
-				repo: z
-					.object({
-						label: z.string(),
-						url: z.string().url(),
-					})
-					.optional(),
-			})
-			.optional(),
-	}),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			subtitle: z.string(),
+			thumbnail: image(),
+			technologies: z.array(z.string()),
+			links: z
+				.object({
+					view: z
+						.object({
+							label: z.string(),
+							url: z.string().url(),
+						})
+						.optional(),
+					repo: z
+						.object({
+							label: z.string(),
+							url: z.string().url(),
+						})
+						.optional(),
+				})
+				.optional(),
+		}),
 });
 
 export const collections = {
