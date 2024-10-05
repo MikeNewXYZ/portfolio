@@ -2,7 +2,7 @@
 	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
 	"title": "Baka Town",
 	"subtitle": "A modern-looking Shopify theme.",
-	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"thumbnail": "./assets/baka-town/thumbnail.png",
 	"technologies": ["shopify themes", "alpinejs", "animejs", "bootstrap"],
 	"links": {
 		"view": {

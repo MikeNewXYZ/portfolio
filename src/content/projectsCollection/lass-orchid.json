@@ -2,7 +2,7 @@
 	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
 	"title": "Lass Orchid",
 	"subtitle": "A flowery and soft-styled Shopify theme.",
-	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"thumbnail": "./assets/lass-orchid/thumbnail.png",
 	"technologies": ["shopify themes", "alpinejs", "tailwind", "daisyui"],
 	"links": {
 		"view": {

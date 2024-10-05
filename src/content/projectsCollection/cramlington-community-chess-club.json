@@ -2,7 +2,7 @@
 	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
 	"title": "Cramlington Community Chess Club",
 	"subtitle": "A site for a community chess club.",
-	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"thumbnail": "./assets/cramlington-community-chess-club/thumbnail.png",
 	"technologies": ["nextjs", "tailwind", "daisy ui", "directus cms", "sqlite"],
 	"links": {
 		"view": {

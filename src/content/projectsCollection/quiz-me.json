@@ -2,7 +2,7 @@
 	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
 	"title": "Quiz Me",
 	"subtitle": "Generates a quiz from a text document using the OpenAI API.",
-	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"thumbnail": "./assets/quiz-me/thumbnail.png",
 	"technologies": ["openai api", "nextjs", "tailwind"],
 	"links": {
 		"view": {

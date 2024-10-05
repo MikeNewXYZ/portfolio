@@ -2,7 +2,7 @@
 	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
 	"title": "Absurd Quiz App",
 	"subtitle": "Generates a funny quiz using the OpenAI API.",
-	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"thumbnail": "./assets/absurd-quiz-app/thumbnail.png",
 	"technologies": ["openai api", "tailwind", "nodejs", "daisy ui"],
 	"links": {
 		"view": {

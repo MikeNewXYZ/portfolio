@@ -2,7 +2,7 @@
 	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
 	"title": "Practice Stratagems",
 	"subtitle": "A game inspired by stratagems in the Helldivers game series.",
-	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"thumbnail": "./assets/practice-stratagems/thumbnail.png",
 	"technologies": ["reactjs", "tailwind"],
 	"links": {
 		"view": {

@@ -2,7 +2,7 @@
 	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
 	"title": "Snake Type",
 	"subtitle": "Snake but its a typing game; made with TypeScript and the Canvas API.",
-	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"thumbnail": "./assets/snake-type/thumbnail.png",
 	"technologies": ["typescript", "canvas api"],
 	"links": {
 		"view": {

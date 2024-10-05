@@ -2,7 +2,7 @@
 	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
 	"title": "An Aalborg Night",
 	"subtitle": "A neon styled Shopify theme.",
-	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"thumbnail": "./assets/an-aalborg-night/thumbnail.png",
 	"technologies": ["shopify themes", "tailwind", "daisy ui", "alpinejs", "animejs"],
 	"links": {
 		"view": {

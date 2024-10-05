@@ -2,7 +2,7 @@
 	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
 	"title": "React Crossfade Carousel",
 	"subtitle": "A ReactJS component for creating a crossfade carousel.",
-	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"thumbnail": "./assets/react-crossfade-carousel/thumbnail.png",
 	"technologies": ["create react library", "reactjs", "styled components"],
 	"links": {
 		"view": {

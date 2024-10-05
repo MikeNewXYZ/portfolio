@@ -2,7 +2,7 @@
 	"$schema": "../../../.astro/collections/projectsCollection.schema.json",
 	"title": "Cat Apple",
 	"subtitle": "A simplistic Shopify theme.",
-	"thumbnail": "/src/assets/images/projects/Absurd Quiz App/thumbnailPath.png",
+	"thumbnail": "./assets/cat-apple/thumbnail.png",
 	"technologies": ["shopify themes", "tailwind", "daisy ui", "animejs", "alpinejs"],
 	"links": {
 		"view": {
