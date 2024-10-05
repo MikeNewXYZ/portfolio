@@ -18,94 +18,107 @@ const {
 } = Astro.props;
 ---
 
-<div
-	id="outer"
+<floating-card
 	class:list={[outerClasses]}
-	data-multiplier={multiplier}
-	data-perspective={perspective}
-	data-transition-duration={transitionDuration}
-	data-hover-scale={hoverScale}
+	multiplier={multiplier}
+	perspective={perspective}
+	transition-duration={transitionDuration}
+	hover-scale={hoverScale}
 	{...rest}
 >
-	<div id="inner" class:list={[innerClasses]}>
+	<div class:list={[innerClasses]}>
 		<slot />
 	</div>
-</div>
+</floating-card>
 
 <script>
-	type Dimensions = {
-		top: number;
-		left: number;
-		halfWidth: number;
-		halfHeight: number;
-	};
+	class FloatingCard extends HTMLElement {
+		innerElement: HTMLDivElement;
+		multiplier: number;
+		perspective: string;
+		transitionDuration: string;
+		hoverScale: string;
+		dimensions: { top: number; left: number; halfHeight: number; halfWidth: number };
 
-	const outerElement = document.getElementById("outer")!;
-	const innerElement = document.getElementById("inner")!;
+		constructor() {
+			super();
+			this.innerElement = this.children[0] as HTMLDivElement;
+			this.multiplier = parseInt(this.getAttribute("multiplier")!);
+			this.perspective = this.getAttribute("perspective")!;
+			this.transitionDuration = this.getAttribute("transition-duration")!;
+			this.hoverScale = this.getAttribute("hover-scale")!;
+			this.dimensions = { top: 0, left: 0, halfHeight: 0, halfWidth: 0 };
 
-	const multiplier = parseInt(outerElement.dataset.multiplier!);
-	const perspective = outerElement.dataset.perspective!;
-	const transitionDuration = outerElement.dataset.transitionDuration!;
-	const hoverScale = outerElement.dataset.hoverScale!;
-	let dimensions: Dimensions = { top: 0, left: 0, halfWidth: 0, halfHeight: 0 };
+			this.animateCard = this.animateCard.bind(this);
+			this.resetCard = this.resetCard.bind(this);
+			this.updateDimensions = this.updateDimensions.bind(this);
+		}
 
-	updateDimensions();
-	Object.assign(outerElement.style, {
-		display: "block",
-		perspective: perspective,
-		transformStyle: "preserve-3d",
-	});
-	Object.assign(innerElement.style, {
-		transition: `transform ${transitionDuration}`,
-	});
+		connectedCallback() {
+			this.updateDimensions();
 
-	innerElement.addEventListener("mousemove", animate);
-	innerElement.addEventListener("mouseleave", reset);
-	window.addEventListener("resize", updateDimensions);
-	window.addEventListener("scroll", updateDimensions);
-
-	function updateDimensions() {
-		const rect = innerElement.getBoundingClientRect();
-		dimensions = {
-			top: rect.top,
-			left: rect.left,
-			halfWidth: rect.width / 2,
-			halfHeight: rect.height / 2,
-		};
-	}
-
-	function animate(event: MouseEvent) {
-		requestAnimationFrame(() => {
-			const { top, left, halfHeight, halfWidth } = dimensions;
-			const mouseY = event.clientY - top;
-			const mouseX = event.clientX - left;
-			const rotateY = -((mouseX - halfWidth) / halfWidth);
-			const rotateX = (mouseY - halfHeight) / halfHeight;
-
-			innerElement.style.transform = `
-	          rotateX(${rotateX * multiplier}deg)
-	          rotateY(${rotateY * multiplier}deg)
-	          scale(${hoverScale})
-	        `;
-			Object.assign(innerElement.style, {
-				transform: `
-	          rotateX(${rotateX * multiplier}deg)
-	          rotateY(${rotateY * multiplier}deg)
-	          scale(${hoverScale})
-	        `,
+			Object.assign(this.style, {
+				display: "block",
+				perspective: this.perspective,
+				transformStyle: "preserve-3d",
 			});
-		});
+			Object.assign(this.innerElement.style, {
+				transition: `transform ${this.transitionDuration}`,
+			});
+
+			this.innerElement.addEventListener("mousemove", this.animateCard);
+			this.innerElement.addEventListener("mouseout", this.resetCard);
+			window.addEventListener("resize", this.updateDimensions);
+			window.addEventListener("scroll", this.updateDimensions);
+		}
+
+		disconnectedCallback() {
+			this.innerElement.removeEventListener("mousemove", this.animateCard);
+			this.innerElement.removeEventListener("mouseout", this.resetCard);
+			window.removeEventListener("resize", this.updateDimensions);
+			window.removeEventListener("scroll", this.updateDimensions);
+		}
+
+		updateDimensions() {
+			const { top, left, height, width } = this.innerElement.getBoundingClientRect();
+			this.dimensions = {
+				top,
+				left,
+				halfHeight: height / 2,
+				halfWidth: width / 2,
+			};
+		}
+
+		animateCard(event: MouseEvent) {
+			requestAnimationFrame(() => {
+				const { top, left, halfHeight, halfWidth } = this.dimensions;
+				const mouseY = event.clientY - top;
+				const mouseX = event.clientX - left;
+				const rotateY = -((mouseX - halfWidth) / halfWidth);
+				const rotateX = (mouseY - halfHeight) / halfHeight;
+
+				Object.assign(this.innerElement.style, {
+					transform: `
+            rotateX(${rotateX * this.multiplier}deg)
+            rotateY(${rotateY * this.multiplier}deg)
+            scale(${this.hoverScale})
+          `,
+				});
+			});
+		}
+
+		resetCard() {
+			requestAnimationFrame(() => {
+				Object.assign(this.innerElement.style, {
+					transform: `
+            rotateX(0deg)
+            rotateY(0deg)
+            scale(1)
+          `,
+				});
+			});
+		}
 	}
 
-	function reset() {
-		requestAnimationFrame(() => {
-			Object.assign(innerElement.style, {
-				transform: `
-	          rotateX(0deg)
-	          rotateY(0deg)
-	          scale(1)
-	        `,
-			});
-		});
-	}
+	customElements.define("floating-card", FloatingCard);
 </script>
