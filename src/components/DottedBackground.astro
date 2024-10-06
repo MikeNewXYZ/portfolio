@@ -10,28 +10,34 @@ import { Icon } from "astro-icon/components";
 	<div id="vignette-overlay" class="absolute left-0 top-0 z-20 h-full w-full"></div>
 
 	<!-- ANCHOR Star Wrapper -->
-	<div id="star-wrapper" class="absolute left-0 top-0 z-10 h-full w-full text-3xl antialiased">
-		<Icon id="star" name="ph:shooting-star-fill" class="absolute -translate-x-16 translate-y-16" />
-		<Icon id="star" name="ph:shooting-star-fill" class="-translate-y-20 absolute -translate-x-4" />
-		<Icon id="star" name="ph:shooting-star-fill" class="translate-x-32 absolute" />
+	<div
+		id="star-wrapper"
+		class="absolute left-0 top-0 z-10 h-full w-full text-3xl antialiased"
+		x-data="{ rotation: ((Math.atan(window.innerWidth / window.innerHeight) * 180) / Math.PI) + 180 - 45 }"
+	>
+		<Icon
+			id="star"
+			name="ph:shooting-star-fill"
+			class="absolute -translate-x-16 translate-y-16"
+			:style="{ rotate: `${rotation}deg` }"
+		/>
+		<Icon
+			id="star"
+			name="ph:shooting-star-fill"
+			class="-translate-y-20 absolute -translate-x-4"
+			:style="{ rotate: `${rotation}deg` }"
+		/>
+		<Icon
+			id="star"
+			name="ph:shooting-star-fill"
+			class="translate-x-32 absolute"
+			:style="{ rotate: `${rotation}deg` }"
+		/>
 	</div>
 
 	<!-- ANCHOR Background -->
 	<div id="background" class="h-full w-full"></div>
 </div>
-
-<script>
-	const starElements = [...document.querySelectorAll<SVGElement>("#star")!];
-	const starRotation = calcRotation();
-
-	starElements.map((starElement) => (starElement.style.rotate = `${starRotation}deg`));
-
-	function calcRotation() {
-		const DEFAULT_ANGLE = 45;
-		const acute = (Math.atan(window.innerWidth / window.innerHeight) * 180) / Math.PI;
-		return acute + 180 - DEFAULT_ANGLE;
-	}
-</script>
 
 <style>
 	#fade-out-overlay {
