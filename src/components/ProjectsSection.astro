@@ -44,6 +44,7 @@ const isProjectsLeft = pageNumber * projectsAmount < projectsCollection.length;
 					x-target="projects-grid load-more-projects"
 					method="post"
 					action={`partials/projects?page-number=${pageNumber}&projects-amount=${projectsAmount}`}
+					data-astro-reload
 				>
 					<button class="button text-xl border-2 animate-pulse px-2 py-1">
 						<div class="flex group-aria-busy:hidden items-center gap-1">
