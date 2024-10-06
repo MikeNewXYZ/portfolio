@@ -1,8 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
-import FloatingCard from "@src/components/FloatingCard.astro";
+import ProjectCard from "@src/components/ProjectCard.astro";
 
 interface Props {
 	pageNumber: number;
@@ -34,59 +33,7 @@ const isProjectsLeft = pageNumber * projectsAmount < projectsCollection.length;
 		x-merge="append"
 	>
 		<!-- ANCHOR Project Card -->
-		{
-			projects.map(({ data }) => (
-				<FloatingCard innerClasses="w-full aspect-square border-4 border-primary relative">
-					<div class="absolute inset-0 z-10 flex h-full w-full flex-col">
-						{/* ANCHOR Card Heading */}
-						<div class="flex flex-1 flex-col p-2 [text-shadow:_0_1px_2px_black]">
-							<h2 class="mt-0.5 text-2xl leading-tight font-bold">{data.title}</h2>
-							<p class="text-pretty text-lg leading-tight">{data.subtitle}</p>
-							<ul class="mt-1.5 flex flex-wrap gap-2 text-xs font-bold uppercase">
-								{data.technologies.map((technology) => (
-									<li class="bg-primary text-secondary shadow-md px-1 py-0.5 border-2 [text-shadow:none]">
-										{technology}
-									</li>
-								))}
-							</ul>
-						</div>
-
-						{/* ANCHOR Card Links */}
-						<div class="flex w-full flex-col gap-2 p-2 drop-shadow-md">
-							{data?.links?.repo && (
-								<a
-									class="button bg-secondary text-center text-xl"
-									href={data.links.repo.url}
-									target="_blank"
-								>
-									{data.links.repo.label}
-								</a>
-							)}
-							{data?.links?.view && (
-								<a
-									class="button bg-secondary text-center text-xl"
-									href={data.links.view.url}
-									target="_blank"
-								>
-									{data.links.view.label}
-								</a>
-							)}
-						</div>
-
-						{/* ANCHOR Card Overlay */}
-						<div class="absolute inset-0 -z-10 h-full w-full bg-secondary opacity-50" />
-					</div>
-
-					{/* ANCHOR Card Thumbnail Image */}
-					<Image
-						class="h-full w-full object-cover"
-						src={data.thumbnail}
-						alt={data.title}
-						draggable={false}
-					/>
-				</FloatingCard>
-			))
-		}
+		{projects.map(({ data }) => <ProjectCard data={data} />)}
 	</div>
 
 	<!-- ANCHOR Load More Projects -->

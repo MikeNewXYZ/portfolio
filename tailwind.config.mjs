@@ -9,5 +9,5 @@ export default {
 			secondary: "#000000",
 		},
 	},
-	plugins: [],
+	plugins: [require("tailwindcss-animated")],
 };

@@ -1,0 +1,80 @@
+---
+import type { InferEntrySchema } from "astro:content";
+import { Image } from "astro:assets";
+import FloatingCard from "@src/components/FloatingCard.astro";
+
+interface Props {
+	data: InferEntrySchema<"projectsCollection">;
+}
+
+const { data } = Astro.props;
+const { title, subtitle, technologies, links, thumbnail } = data;
+---
+
+<FloatingCard
+	outerClasses="animate-fade animate-once animate-normal animate-duration-[2000ms]"
+	innerClasses="w-full aspect-square border-4 border-primary relative"
+	x-data="{show: false}"
+	x-intersect:enter.full="show = true"
+	x-intersect:leave.half="show = false"
+	x-cloak
+>
+	<div class="absolute inset-0 z-10 flex h-full w-full flex-col overflow-hidden">
+		{/* ANCHOR Card Heading */}
+		<div
+			class="flex flex-1 flex-col p-2 [text-shadow:_0_1px_2px_black] transition-transform duration-1000"
+			x-show="show"
+			x-transition:enter-start="-translate-y-full"
+			x-transition:enter-end="translate-y-0"
+			x-transition:leave-start="translate-y-0"
+			x-transition:leave-end="-translate-y-full"
+		>
+			<h2 class="mt-0.5 text-2xl leading-tight font-bold">{title}</h2>
+			<p class="text-pretty text-lg leading-tight">{subtitle}</p>
+			<ul class="mt-1.5 flex flex-wrap gap-2 text-xs font-bold uppercase">
+				{
+					technologies.map((technology) => (
+						<li class="bg-primary text-secondary shadow-md px-1 py-0.5 border-2 [text-shadow:none]">
+							{technology}
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		{/* ANCHOR Card Links */}
+		<div
+			class="flex w-full flex-col gap-2 p-2 drop-shadow-md transition-transform duration-1000"
+			x-show="show"
+			x-transition:enter-start="translate-y-full"
+			x-transition:enter-end="translate-y-0"
+			x-transition:leave-start="translate-y-0"
+			x-transition:leave-end="translate-y-full"
+		>
+			{
+				links?.repo && (
+					<a class="button bg-secondary text-center text-xl" href={links.repo.url} target="_blank">
+						{links.repo.label}
+					</a>
+				)
+			}
+			{
+				links?.view && (
+					<a class="button bg-secondary text-center text-xl" href={links.view.url} target="_blank">
+						{links.view.label}
+					</a>
+				)
+			}
+		</div>
+
+		{/* ANCHOR Card Overlay */}
+		<div
+			class="absolute inset-0 -z-10 h-full w-full bg-secondary transition-opacity duration-500 opacity-0"
+			x-bind:class="show ? 'opacity-50' : 'opacity-0'"
+		>
+		</div>
+	</div>
+
+	{/* ANCHOR Card Thumbnail Image */}
+	<Image class="h-full w-full object-cover" src={thumbnail} alt={title} draggable={false} />
+</FloatingCard>
