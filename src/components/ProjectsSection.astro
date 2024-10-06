@@ -40,7 +40,7 @@ const isProjectsLeft = pageNumber * projectsAmount < projectsCollection.length;
 					<div class="absolute inset-0 z-10 flex h-full w-full flex-col">
 						{/* ANCHOR Card Heading */}
 						<div class="flex flex-1 flex-col p-2 [text-shadow:_0_1px_2px_black]">
-							<h2 class="mt-0.5 text-2xl leading-tight">{data.title}</h2>
+							<h2 class="mt-0.5 text-2xl leading-tight font-bold">{data.title}</h2>
 							<p class="text-pretty text-lg leading-tight">{data.subtitle}</p>
 							<ul class="mt-1.5 flex flex-wrap gap-2 text-xs font-bold uppercase">
 								{data.technologies.map((technology) => (
