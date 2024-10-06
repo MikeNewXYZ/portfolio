@@ -15,7 +15,7 @@ import Sphere from "@src/components/Sphere.astro";
 	</head>
 
 	<body class="relative min-h-dvh w-full overflow-x-hidden flex-1 flex flex-col">
-		<Header fakeHeader />
+		<Header transition:persist fakeHeader />
 
 		<main
 			class="container mx-auto px-4 md:py-4 overflow-x-hidden flex-1 flex md:justify-center md:items-center md:pb-10"
@@ -24,6 +24,6 @@ import Sphere from "@src/components/Sphere.astro";
 		</main>
 
 		<Sphere />
-		<Footer />
+		<Footer transition:persist />
 	</body>
 </html>

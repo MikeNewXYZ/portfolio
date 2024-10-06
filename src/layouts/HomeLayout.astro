@@ -15,13 +15,13 @@ import Sphere from "@src/components/Sphere.astro";
 	</head>
 
 	<body class="relative min-h-dvh w-full overflow-x-hidden flex-1 flex flex-col">
-		<Header />
+		<Header transition:persist />
 
 		<main class="relative w-full overflow-x-hidden flex-1">
 			<slot />
 		</main>
 
 		<Sphere nodeCount={300} nodeSize={2} rotationDuration={200} glowCycleDuration={8} />
-		<Footer />
+		<Footer transition:persist />
 	</body>
 </html>
