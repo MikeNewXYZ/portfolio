@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import "@fontsource/space-grotesk";
 import "@src/base.css";
 
@@ -11,6 +12,8 @@ const { title, description, image = "./assets/misc/site-thumbnail-placeholder.pn
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
+
+<ViewTransitions />
 
 <!-- ANCHOR Global Metadata -->
 <meta charset="utf-8" />
