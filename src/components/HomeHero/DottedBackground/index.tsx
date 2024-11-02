@@ -20,7 +20,7 @@ export default function DottedBackground() {
 	}
 
 	return (
-		<div className="fixed left-0 top-0 -z-10 h-dvh w-full" style={{ perspective: "1000px" }}>
+		<div className="absolute left-0 top-0 -z-10 h-dvh w-full" style={{ perspective: "1000px" }}>
 			{/* ANCHOR Fade Out */}
 			<div
 				className={twMerge("absolute left-0 top-0 z-30 h-full w-full", styles["fade-out"])}
@@ -34,7 +34,7 @@ export default function DottedBackground() {
 			{/* ANCHOR Stars */}
 			<div
 				className={twMerge(
-					"absolute left-0 top-0 z-10 h-full w-full text-xl",
+					"absolute left-0 top-0 z-10 h-full w-full text-4xl",
 					styles["star-wrapper"],
 				)}
 			>
@@ -44,12 +44,12 @@ export default function DottedBackground() {
 					icon="ph:shooting-star-fill"
 				/>
 				<Icon
-					className="-translate-y-20] absolute -translate-x-4"
+					className="absolute -translate-x-4 -translate-y-20"
 					style={{ rotate: `${starRotation}deg` }}
 					icon="ph:shooting-star-fill"
 				/>
 				<Icon
-					className="translate-x-32] absolute"
+					className="absolute translate-x-32"
 					style={{ rotate: `${starRotation}deg` }}
 					icon="ph:shooting-star-fill"
 				/>
