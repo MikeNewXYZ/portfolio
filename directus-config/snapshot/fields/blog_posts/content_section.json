@@ -1,0 +1,29 @@
+{
+  "collection": "blog_posts",
+  "field": "content_section",
+  "type": "alias",
+  "meta": {
+    "collection": "blog_posts",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "content_section",
+    "group": null,
+    "hidden": false,
+    "interface": "group-detail",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 9,
+    "special": [
+      "alias",
+      "no-data",
+      "group"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}

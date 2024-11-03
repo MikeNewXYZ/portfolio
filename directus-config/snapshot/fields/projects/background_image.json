@@ -1,0 +1,47 @@
+{
+  "collection": "projects",
+  "field": "background_image",
+  "type": "uuid",
+  "meta": {
+    "collection": "projects",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "background_image",
+    "group": "background_section",
+    "hidden": false,
+    "interface": "file-image",
+    "note": null,
+    "options": {
+      "folder": "5da59d13-906b-44a8-bad5-8a9d3a3e0b16"
+    },
+    "readonly": false,
+    "required": true,
+    "sort": 1,
+    "special": [
+      "file"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "name": "background_image",
+    "table": "projects",
+    "data_type": "char",
+    "default_value": null,
+    "max_length": 36,
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "is_nullable": true,
+    "is_unique": false,
+    "is_indexed": false,
+    "is_primary_key": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "foreign_key_table": "directus_files",
+    "foreign_key_column": "id"
+  }
+}

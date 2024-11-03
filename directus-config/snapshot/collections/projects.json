@@ -1,0 +1,28 @@
+{
+  "collection": "projects",
+  "meta": {
+    "accountability": "all",
+    "archive_app_filter": true,
+    "archive_field": null,
+    "archive_value": null,
+    "collapse": "open",
+    "collection": "projects",
+    "color": "#6644FF",
+    "display_template": null,
+    "group": "Collections",
+    "hidden": false,
+    "icon": "edit_document",
+    "item_duplication_fields": null,
+    "note": null,
+    "preview_url": "{{title}}",
+    "singleton": false,
+    "sort": 1,
+    "sort_field": "sort",
+    "translations": null,
+    "unarchive_value": null,
+    "versioning": false
+  },
+  "schema": {
+    "name": "projects"
+  }
+}

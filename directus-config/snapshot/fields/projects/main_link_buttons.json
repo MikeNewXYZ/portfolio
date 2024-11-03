@@ -1,0 +1,30 @@
+{
+  "collection": "projects",
+  "field": "main_link_buttons",
+  "type": "alias",
+  "meta": {
+    "collection": "projects",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "main_link_buttons",
+    "group": "main_link_buttons_section",
+    "hidden": false,
+    "interface": "list-m2m",
+    "note": null,
+    "options": {
+      "enableSelect": false,
+      "template": "{{links_id.label}}: {{links_id.url}}"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 1,
+    "special": [
+      "m2m"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}
