@@ -1,11 +1,15 @@
+import Header from "@/components/Header";
 import HomeHero from "@/components/HomeHero";
+import ProjectsSection from "@/components/ProjectsSection";
 
 export default function HomePage() {
 	return (
-		<main className="flex flex-col overflow-x-hidden">
-			<HomeHero />
-
-			<section id="projects-section">projects</section>
-		</main>
+		<>
+			<Header />
+			<main className="flex flex-col overflow-x-hidden">
+				<HomeHero />
+				<ProjectsSection />
+			</main>
+		</>
 	);
 }
