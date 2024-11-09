@@ -20,7 +20,7 @@ export type BlogPosts = {
 	slug?: string | null;
 	sort?: number | null;
 	status: string;
-	tags: BlogPostsBlogPostTags[];
+	tags: any[] | BlogPostsBlogPostTags[];
 	title?: string | null;
 	user_created?: string | DirectusUsers | null;
 	user_updated?: string | DirectusUsers | null;
@@ -53,7 +53,7 @@ export type DirectusActivity = {
 	ip?: string | null;
 	item: string;
 	origin?: string | null;
-	revisions: DirectusRevisions[];
+	revisions: any[] | DirectusRevisions[];
 	timestamp: string;
 	user?: string | DirectusUsers | null;
 	user_agent?: string | null;
@@ -100,7 +100,7 @@ export type DirectusDashboards = {
 	id: string;
 	name: string;
 	note?: string | null;
-	panels: DirectusPanels[];
+	panels: any[] | DirectusPanels[];
 	user_created?: string | DirectusUsers | null;
 };
 
@@ -172,7 +172,7 @@ export type DirectusFlows = {
 	id: string;
 	name: string;
 	operation?: string | DirectusOperations | null;
-	operations: DirectusOperations[];
+	operations: any[] | DirectusOperations[];
 	options?: unknown | null;
 	status: string;
 	trigger?: string | null;
@@ -256,9 +256,9 @@ export type DirectusPolicies = {
 	id?: string | null;
 	ip_access?: unknown | null;
 	name: string;
-	permissions: DirectusPermissions[];
-	roles: DirectusAccess[];
-	users: DirectusAccess[];
+	permissions: any[] | DirectusPermissions[];
+	roles: any[] | DirectusAccess[];
+	users: any[] | DirectusAccess[];
 };
 
 export type DirectusPresets = {
@@ -302,14 +302,14 @@ export type DirectusRevisions = {
 };
 
 export type DirectusRoles = {
-	children: DirectusRoles[];
+	children: any[] | DirectusRoles[];
 	description?: string | null;
 	icon: string;
 	id: string;
 	name: string;
 	parent?: string | DirectusRoles | null;
-	policies: DirectusAccess[];
-	users: DirectusUsers[];
+	policies: any[] | DirectusAccess[];
+	users: any[] | DirectusUsers[];
 	users_group: string;
 };
 
@@ -407,7 +407,7 @@ export type DirectusUsers = {
 	last_page?: string | null;
 	location?: string | null;
 	password?: string | null;
-	policies: DirectusAccess[];
+	policies: any[] | DirectusAccess[];
 	provider: string;
 	role?: string | DirectusRoles | null;
 	status: string;
@@ -449,11 +449,27 @@ export type DirectusWebhooks = {
 	was_active_before_deprecation: boolean;
 };
 
+export type FooterPartial = {
+	credit_link?: string | Links | null;
+	credit_section: string;
+	id: string;
+	social_links: any[] | FooterPartialSocials[];
+	social_links_section: string;
+};
+
+export type FooterPartialSocials = {
+	footer_partial_id?: string | FooterPartial | null;
+	id: number;
+	socials_id?: string | Socials | null;
+	sort?: number | null;
+};
+
 export type HomePage = {
 	id: string;
 };
 
 export type Links = {
+	icon?: string | null;
 	id: string;
 	is_external?: boolean | null;
 	label?: string | null;
@@ -465,11 +481,11 @@ export type Projects = {
 	background_section: string;
 	heading_section: string;
 	id: string;
-	main_link_buttons: ProjectsLinks[];
+	main_link_buttons: any[] | ProjectsLinks[];
 	main_link_buttons_section: string;
 	sort?: number | null;
 	subtitle?: string | null;
-	technologies: ProjectsTechnologyTags[];
+	technologies: any[] | ProjectsTechnologyTags[];
 	title?: string | null;
 };
 
@@ -485,6 +501,11 @@ export type ProjectsTechnologyTags = {
 	projects_id?: string | Projects | null;
 	sort?: number | null;
 	technology_tags_id?: string | TechnologyTags | null;
+};
+
+export type Socials = {
+	id: string;
+	link?: string | Links | null;
 };
 
 export type TechnologyTags = {
@@ -528,10 +549,13 @@ export type CustomDirectusTypes = {
 	directus_users: DirectusUsers[];
 	directus_versions: DirectusVersions[];
 	directus_webhooks: DirectusWebhooks[];
+	footer_partial: FooterPartial;
+	footer_partial_socials: FooterPartialSocials[];
 	home_page: HomePage;
 	links: Links[];
 	projects: Projects[];
 	projects_links: ProjectsLinks[];
 	projects_technology_tags: ProjectsTechnologyTags[];
+	socials: Socials[];
 	technology_tags: TechnologyTags[];
 };
