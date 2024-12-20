@@ -1,14 +1,11 @@
-// storage-adapter-import-placeholder
 import { sqliteAdapter } from "@payloadcms/db-sqlite";
 import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
-import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
 import { buildConfig } from "payload";
 import sharp from "sharp";
 import { fileURLToPath } from "url";
 
-import { Media } from "./collections/Media";
 import { Users } from "./collections/Users";
 
 const filename = fileURLToPath(import.meta.url);
@@ -21,7 +18,7 @@ export default buildConfig({
 			baseDir: path.resolve(dirname),
 		},
 	},
-	collections: [Users, Media],
+	collections: [Users],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET || "",
 	typescript: {
@@ -45,8 +42,5 @@ export default buildConfig({
 		},
 	}),
 	sharp,
-	plugins: [
-		payloadCloudPlugin(),
-		// storage-adapter-placeholder
-	],
+	plugins: [],
 });
